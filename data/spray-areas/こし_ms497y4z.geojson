@@ -2717,7 +2717,10 @@
   "meta": {
     "displayName": "こし",
     "color": "#00bfff",
-    "opacity": 0.55,
-    "visible": true
+    "opacity": 0.9,
+    "visible": true,
+    "strokeColor": "#a3123a",
+    "strokeWeight": 1.5,
+    "strokeOpacity": 0.95
   }
 }
