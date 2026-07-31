@@ -10,6 +10,17 @@
       "opacity": 0.5,
       "weight": 1.5,
       "minZoom": 15
+    },
+    {
+      "id": "field_ms8kuq8k8wini",
+      "title": "【耕地耕作】わせ",
+      "path": "layers/field_ms8kuq8k8wini.geojson",
+      "nameProp": "AreaOnRegistry",
+      "defaultFill": "#ffea00",
+      "defaultBorder": "#ffffff",
+      "opacity": 0.5,
+      "weight": 1.5,
+      "minZoom": 12
     }
   ]
 }
