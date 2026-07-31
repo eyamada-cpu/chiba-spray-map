@@ -16,13 +16,13 @@
       "title": "【耕地耕作】こし",
       "path": "layers/field_ms8kb5wq7e30u.geojson",
       "nameProp": "Tiban",
-      "defaultFill": "#e65100",
+      "defaultFill": "#00ccff",
       "defaultBorder": "#8d3f00",
       "opacity": 0.5,
       "weight": 1.5,
       "minZoom": 15,
       "fillEnabled": true,
-      "strokeEnabled": false
+      "strokeEnabled": true
     }
   ]
 }
