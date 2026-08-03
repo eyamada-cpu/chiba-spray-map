@@ -55,6 +55,20 @@
       "fillEnabled": true,
       "strokeEnabled": true,
       "visible": true
+    },
+    {
+      "id": "field_mscv09whj2osf",
+      "title": "久寺家",
+      "path": "layers/field_mscv09whj2osf.geojson",
+      "nameProp": "氏名",
+      "defaultFill": "#e65100",
+      "defaultBorder": "#8d3f00",
+      "opacity": 0.5,
+      "weight": 1.5,
+      "minZoom": 12,
+      "fillEnabled": true,
+      "strokeEnabled": true,
+      "visible": true
     }
   ]
 }
