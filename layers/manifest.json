@@ -43,9 +43,9 @@
       "visible": true
     },
     {
-      "id": "field_mscq1sysymw6x",
-      "title": "【新島ライスファーム】わせ",
-      "path": "layers/field_mscq1sysymw6x.geojson",
+      "id": "field_mscqh18o63uwb",
+      "title": "【新島ライスファーム】こし",
+      "path": "layers/field_mscqh18o63uwb.geojson",
       "nameProp": "AreaOnRegistry",
       "defaultFill": "#e65100",
       "defaultBorder": "#8d3f00",
@@ -57,15 +57,15 @@
       "visible": true
     },
     {
-      "id": "field_mscqh18o63uwb",
-      "title": "【新島ライスファーム】こし",
-      "path": "layers/field_mscqh18o63uwb.geojson",
+      "id": "field_mscq1sysymw6x",
+      "title": "【新島ライスファーム】わせ",
+      "path": "layers/field_mscq1sysymw6x.geojson",
       "nameProp": "AreaOnRegistry",
-      "defaultFill": "#e65100",
-      "defaultBorder": "#8d3f00",
+      "defaultFill": "#fbff00",
+      "defaultBorder": "#ffffff",
       "opacity": 0.5,
       "weight": 1.5,
-      "minZoom": 12,
+      "minZoom": 15,
       "fillEnabled": true,
       "strokeEnabled": true,
       "visible": true
