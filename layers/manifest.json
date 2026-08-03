@@ -24,6 +24,20 @@
       "fillEnabled": true,
       "strokeEnabled": true,
       "visible": true
+    },
+    {
+      "id": "field_msckc2mulgqxe",
+      "title": "delete_test",
+      "path": "layers/field_msckc2mulgqxe.geojson",
+      "nameProp": "name",
+      "defaultFill": "#e65100",
+      "defaultBorder": "#8d3f00",
+      "opacity": 0.5,
+      "weight": 1.5,
+      "minZoom": 12,
+      "fillEnabled": true,
+      "strokeEnabled": true,
+      "visible": true
     }
   ]
 }
