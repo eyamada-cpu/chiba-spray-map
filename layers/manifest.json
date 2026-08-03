@@ -41,14 +41,14 @@
     },
     {
       "id": "field_mscq0ff4feioq",
-      "title": "【新島ライスファーム】わせ",
+      "title": "わせ",
       "path": "layers/field_mscq0ff4feioq.geojson",
       "nameProp": "AreaOnRegistry",
       "defaultFill": "#e65100",
       "defaultBorder": "#8d3f00",
       "opacity": 0.5,
       "weight": 1.5,
-      "minZoom": 12,
+      "minZoom": 17,
       "fillEnabled": true,
       "strokeEnabled": true,
       "visible": true
