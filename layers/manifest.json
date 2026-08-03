@@ -1,17 +1,6 @@
 {
   "layers": [
     {
-      "id": "field_ms8kuq8k8wini",
-      "title": "【耕地耕作】わせ",
-      "path": "layers/field_ms8kuq8k8wini.geojson",
-      "nameProp": "Tiban",
-      "defaultFill": "#ffea00",
-      "defaultBorder": "#ffffff",
-      "opacity": 0.5,
-      "weight": 1.5,
-      "minZoom": 15
-    },
-    {
       "id": "field_ms8kb5wq7e30u",
       "title": "【耕地耕作】こし",
       "path": "layers/field_ms8kb5wq7e30u.geojson",
@@ -49,6 +38,20 @@
       "opacity": 0.5,
       "weight": 1.5,
       "minZoom": 16,
+      "fillEnabled": true,
+      "strokeEnabled": true,
+      "visible": true
+    },
+    {
+      "id": "field_ms8kuq8k8wini",
+      "title": "【耕地耕作】わせ",
+      "path": "layers/field_ms8kuq8k8wini.geojson",
+      "nameProp": "Tiban",
+      "defaultFill": "#ffea00",
+      "defaultBorder": "#ffffff",
+      "opacity": 0.5,
+      "weight": 1.5,
+      "minZoom": 15,
       "fillEnabled": true,
       "strokeEnabled": true,
       "visible": true
