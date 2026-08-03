@@ -83,6 +83,20 @@
       "fillEnabled": true,
       "strokeEnabled": true,
       "visible": true
+    },
+    {
+      "id": "field_mscv0gkg4gmru",
+      "title": "耕地耕作",
+      "path": "layers/field_mscv0gkg4gmru.geojson",
+      "nameProp": "明細/圃場地番",
+      "defaultFill": "#01edfe",
+      "defaultBorder": "#8d3f00",
+      "opacity": 0.5,
+      "weight": 1.5,
+      "minZoom": 12,
+      "fillEnabled": true,
+      "strokeEnabled": true,
+      "visible": true
     }
   ]
 }
