@@ -55,6 +55,20 @@
       "fillEnabled": true,
       "strokeEnabled": true,
       "visible": true
+    },
+    {
+      "id": "field_mscqh18o63uwb",
+      "title": "こし",
+      "path": "layers/field_mscqh18o63uwb.geojson",
+      "nameProp": "AreaOnRegistry",
+      "defaultFill": "#e65100",
+      "defaultBorder": "#8d3f00",
+      "opacity": 0.5,
+      "weight": 1.5,
+      "minZoom": 12,
+      "fillEnabled": true,
+      "strokeEnabled": true,
+      "visible": true
     }
   ]
 }
