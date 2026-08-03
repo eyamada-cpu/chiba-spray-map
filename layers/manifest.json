@@ -75,7 +75,7 @@
       "title": "耕地耕作",
       "path": "layers/field_mscv1d4bxdo9h.geojson",
       "nameProp": "明細/圃場地番",
-      "defaultFill": "#e65100",
+      "defaultFill": "#fff700",
       "defaultBorder": "#8d3f00",
       "opacity": 0.5,
       "weight": 1.5,
