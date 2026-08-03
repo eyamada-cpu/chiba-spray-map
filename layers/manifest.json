@@ -48,7 +48,7 @@
       "defaultBorder": "#8d3f00",
       "opacity": 0.5,
       "weight": 1.5,
-      "minZoom": 17,
+      "minZoom": 18,
       "fillEnabled": true,
       "strokeEnabled": true,
       "visible": true
