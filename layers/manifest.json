@@ -26,9 +26,9 @@
       "visible": true
     },
     {
-      "id": "field_mscq0ff4feioq",
-      "title": "わせ",
-      "path": "layers/field_mscq0ff4feioq.geojson",
+      "id": "field_mscq1sysymw6x",
+      "title": "【新島ライスファーム】わせ",
+      "path": "layers/field_mscq1sysymw6x.geojson",
       "nameProp": "AreaOnRegistry",
       "defaultFill": "#e65100",
       "defaultBorder": "#8d3f00",
@@ -40,9 +40,9 @@
       "visible": true
     },
     {
-      "id": "field_mscq1sysymw6x",
+      "id": "field_mscq0ff4feioq",
       "title": "【新島ライスファーム】わせ",
-      "path": "layers/field_mscq1sysymw6x.geojson",
+      "path": "layers/field_mscq0ff4feioq.geojson",
       "nameProp": "AreaOnRegistry",
       "defaultFill": "#e65100",
       "defaultBorder": "#8d3f00",
