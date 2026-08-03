@@ -52,7 +52,7 @@
       "opacity": 0.5,
       "weight": 1.5,
       "minZoom": 12,
-      "fillEnabled": true,
+      "fillEnabled": false,
       "strokeEnabled": true,
       "visible": true
     }
