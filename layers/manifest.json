@@ -48,7 +48,7 @@
       "path": "layers/field_mscqh18o63uwb.geojson",
       "nameProp": "AreaOnRegistry",
       "defaultFill": "#00ffee",
-      "defaultBorder": "#8d3f00",
+      "defaultBorder": "#ffffff",
       "opacity": 0.5,
       "weight": 1.5,
       "minZoom": 12,
