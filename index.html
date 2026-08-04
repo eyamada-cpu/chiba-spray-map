@@ -104,6 +104,8 @@
   #gh-status{font-size:11px;margin-top:6px;color:var(--text-sub);min-height:14px;}
   #gh-status.error{color:#dc2626;}
   #gh-note{font-size:10px;color:var(--text-sub);margin-top:2px;line-height:1.5;}
+  #gh-view-status{font-size:11.5px;color:var(--text-sub);}
+  #gh-view-status.error{color:#dc2626;}
 
   #panel-footer{padding:10px 16px;border-top:1px solid var(--border);font-size:10.5px;color:var(--text-sub);}
 
@@ -190,18 +192,20 @@
       </div>
 
       <div class="section">
-        <div class="section-title">GitHub連携（アップロードデータの保管）</div>
+        <div class="section-title">共有データ（全員が同じものを閲覧）</div>
+        <div id="gh-view-status">共有データを確認中...</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">データをアップロードして共有する</div>
         <div id="github-settings">
-          <input type="text" id="gh-repo" placeholder="GitHubリポジトリ（例：owner/repo）">
-          <input type="password" id="gh-token" placeholder="Personal Access Token">
-          <input type="text" id="gh-path" placeholder="リポジトリ内の保存先パス（例：data/uploads）">
+          <input type="password" id="gh-token" placeholder="GitHubアップロード用トークン（アップロードする人のみ入力）">
           <div class="gh-btn-row">
-            <button class="upload-btn" id="gh-save-btn" type="button">接続を保存</button>
-            <button class="reset-btn" id="gh-refresh-btn" type="button">再読込</button>
+            <button class="upload-btn" id="gh-save-btn" type="button">トークンを保存</button>
           </div>
         </div>
         <div id="gh-status"></div>
-        <div id="gh-note">アップロードしたデータの保存先はGitHubのみです（Coworkには保存されません）。トークンはこのブラウザ内にのみ保存され、GitHub以外には送信されません。</div>
+        <div id="gh-note">閲覧は誰でもトークン不要です。アップロードして全員に共有したい場合のみトークンが必要です。トークンはこのブラウザ内にのみ保存され、GitHub以外には送信されません。</div>
       </div>
 
       <div class="section">
@@ -751,39 +755,27 @@
     uploadInput.value = '';
   });
 
-  // ---------------- GitHub sync (store uploaded data in a repo) ----------------
-  const ghRepoInput = document.getElementById('gh-repo');
+  // ---------------- GitHub sync (shared storage for uploaded data) ----------------
+  // Repo and path are fixed so that everyone who opens this site automatically
+  // sees the same shared data — no configuration needed to just view it.
+  const GITHUB_REPO = 'eyamada-cpu/chiba-spray-map';
+  const GITHUB_PATH = 'data/uploads';
+
   const ghTokenInput = document.getElementById('gh-token');
-  const ghPathInput = document.getElementById('gh-path');
   const ghSaveBtn = document.getElementById('gh-save-btn');
-  const ghRefreshBtn = document.getElementById('gh-refresh-btn');
   const ghStatusEl = document.getElementById('gh-status');
-  const GH_STORAGE_KEY = 'chibaGuideMap.github.v1';
+  const ghViewStatusEl = document.getElementById('gh-view-status');
+  const GH_TOKEN_STORAGE_KEY = 'chibaGuideMap.github.token.v1';
   const loadedGitHubPaths = new Set();
 
-  function loadGitHubSettings(){
-    try {
-      const raw = localStorage.getItem(GH_STORAGE_KEY);
-      return raw ? JSON.parse(raw) : null;
-    } catch (e) { return null; }
-  }
-  function saveGitHubSettingsToStorage(settings){
-    try { localStorage.setItem(GH_STORAGE_KEY, JSON.stringify(settings)); } catch (e) {}
-  }
+  let githubToken = null;
+  try { githubToken = localStorage.getItem(GH_TOKEN_STORAGE_KEY) || null; } catch (e) {}
+  if (githubToken) ghTokenInput.value = githubToken;
 
-  let githubSettings = loadGitHubSettings();
-  ghPathInput.value = (githubSettings && githubSettings.path) || 'data/uploads';
-  if (githubSettings) {
-    ghRepoInput.value = githubSettings.repo || '';
-    ghTokenInput.value = githubSettings.token || '';
-  }
-
-  function ghHeaders(){
-    return {
-      Authorization: 'Bearer ' + githubSettings.token,
-      Accept: 'application/vnd.github+json',
-      'X-GitHub-Api-Version': '2022-11-28'
-    };
+  function ghAuthHeaders(){
+    const headers = { Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' };
+    if (githubToken) headers.Authorization = 'Bearer ' + githubToken;
+    return headers;
   }
 
   function utf8ToBase64(str){
@@ -796,19 +788,15 @@
     return btoa(binary);
   }
 
-  async function loadStoredDataFromGitHub(){
-    if (!githubSettings || !githubSettings.repo || !githubSettings.token) {
-      ghStatusEl.className = '';
-      ghStatusEl.textContent = 'リポジトリとトークンを入力して保存してください。';
-      return;
-    }
-    ghStatusEl.className = '';
-    ghStatusEl.textContent = '保存済みデータを確認中...';
+  // Reading is public — no token required, so every visitor sees the same shared data.
+  async function loadSharedDataFromGitHub(){
+    ghViewStatusEl.className = '';
+    ghViewStatusEl.textContent = '共有データを確認中...';
     try {
-      const url = `https://api.github.com/repos/${githubSettings.repo}/contents/${githubSettings.path}`;
-      const res = await fetch(url, { headers: ghHeaders() });
+      const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${GITHUB_PATH}`;
+      const res = await fetch(url, { headers: ghAuthHeaders() });
       if (res.status === 404) {
-        ghStatusEl.textContent = '保存済みデータはまだありません（初回アップロード時に自動作成されます）。';
+        ghViewStatusEl.textContent = 'まだ共有データはありません。';
         return;
       }
       if (!res.ok) throw new Error(`GitHub APIエラー (${res.status})`);
@@ -824,27 +812,27 @@
           loadedGitHubPaths.add(item.path);
           loaded++;
         } catch (e) {
-          console.error('GitHubからの読み込みに失敗:', item.name, e);
+          console.error('共有データの読み込みに失敗:', item.name, e);
         }
       }
-      ghStatusEl.textContent = loaded > 0
-        ? `${loaded}件のデータをGitHubから読み込みました。`
-        : '新規データはありませんでした（すでに読み込み済みです）。';
+      ghViewStatusEl.textContent = files.length > 0
+        ? `${files.length}件の共有データを表示中`
+        : 'まだ共有データはありません。';
     } catch (e) {
-      ghStatusEl.className = 'error';
-      ghStatusEl.textContent = '読み込みに失敗しました: ' + e.message;
+      ghViewStatusEl.className = 'error';
+      ghViewStatusEl.textContent = '共有データの取得に失敗しました: ' + e.message;
     }
   }
 
   async function pushFileToGitHub(cfg, filename, text){
-    if (!githubSettings || !githubSettings.repo || !githubSettings.token) return;
-    const path = `${githubSettings.path}/${filename}`;
+    if (!githubToken) return;
+    const path = `${GITHUB_PATH}/${filename}`;
     ghStatusEl.className = '';
-    ghStatusEl.textContent = `${filename} をGitHubに保存中...`;
+    ghStatusEl.textContent = `${filename} を共有中...`;
     try {
       let sha = cfg.githubSha || null;
       if (!sha) {
-        const getRes = await fetch(`https://api.github.com/repos/${githubSettings.repo}/contents/${path}`, { headers: ghHeaders() });
+        const getRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${path}`, { headers: ghAuthHeaders() });
         if (getRes.ok) {
           const info = await getRes.json();
           sha = info.sha;
@@ -852,44 +840,38 @@
       }
       const body = { message: `アップロード: ${filename}`, content: utf8ToBase64(text) };
       if (sha) body.sha = sha;
-      const putRes = await fetch(`https://api.github.com/repos/${githubSettings.repo}/contents/${path}`, {
+      const putRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${path}`, {
         method: 'PUT',
-        headers: Object.assign({ 'Content-Type': 'application/json' }, ghHeaders()),
+        headers: Object.assign({ 'Content-Type': 'application/json' }, ghAuthHeaders()),
         body: JSON.stringify(body)
       });
-      if (!putRes.ok) throw new Error(`保存失敗 (${putRes.status})`);
+      if (!putRes.ok) throw new Error(`共有に失敗しました (${putRes.status})`);
       const result = await putRes.json();
       cfg.githubPath = path;
       cfg.githubSha = result.content && result.content.sha;
       loadedGitHubPaths.add(path);
-      ghStatusEl.textContent = `${filename} をGitHubに保存しました。`;
+      ghStatusEl.textContent = `${filename} を共有しました。みんなが見られるようになりました。`;
     } catch (e) {
       ghStatusEl.className = 'error';
-      ghStatusEl.textContent = `${filename} の保存に失敗しました: ${e.message}`;
+      ghStatusEl.textContent = `${filename} の共有に失敗しました: ${e.message}`;
     }
   }
 
   ghSaveBtn.addEventListener('click', () => {
-    const repo = ghRepoInput.value.trim();
     const token = ghTokenInput.value.trim();
-    const path = (ghPathInput.value.trim() || 'data/uploads').replace(/^\/+|\/+$/g, '');
-    if (!repo || !token) {
+    if (!token) {
       ghStatusEl.className = 'error';
-      ghStatusEl.textContent = 'リポジトリとトークンを入力してください。';
+      ghStatusEl.textContent = 'トークンを入力してください。';
       return;
     }
-    githubSettings = { repo, token, path };
-    saveGitHubSettingsToStorage(githubSettings);
+    githubToken = token;
+    try { localStorage.setItem(GH_TOKEN_STORAGE_KEY, token); } catch (e) {}
     ghStatusEl.className = '';
-    ghStatusEl.textContent = '接続情報を保存しました。';
-    loadStoredDataFromGitHub();
+    ghStatusEl.textContent = 'トークンを保存しました。アップロードしたデータは自動で共有されます。';
   });
 
-  ghRefreshBtn.addEventListener('click', loadStoredDataFromGitHub);
-
-  if (githubSettings && githubSettings.repo && githubSettings.token) {
-    loadStoredDataFromGitHub();
-  }
+  // Always load shared data on page open — no setup required to view it.
+  loadSharedDataFromGitHub();
 
   // ---------------- Search ----------------
   const searchInput = document.getElementById('search-input');
