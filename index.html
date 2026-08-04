@@ -438,8 +438,9 @@
   // ---------------- Layer panel UI ----------------
   function createLayerCard(cfg){
     const card = document.createElement('div');
-    card.className = 'layer-card';
+    card.className = 'layer-card collapsed';
     card.dataset.layerId = cfg.id;
+    card.dataset.fixed = cfg.removable ? 'false' : 'true';
 
     card.innerHTML = `
       <div class="layer-head" data-role="toggle-collapse">
@@ -495,7 +496,14 @@
         </div>
       </div>
     `;
-    layerListEl.appendChild(card);
+    // 支所・地区（固定レイヤ）は常に最下部。新規レイヤはその直前に挿入する。
+    if (cfg.removable) {
+      const firstFixed = layerListEl.querySelector('.layer-card[data-fixed="true"]');
+      if (firstFixed) layerListEl.insertBefore(card, firstFixed);
+      else layerListEl.appendChild(card);
+    } else {
+      layerListEl.appendChild(card);
+    }
 
     const head = card.querySelector('[data-role="toggle-collapse"]');
     const visibleChk = card.querySelector('[data-role="visible"]');
