@@ -879,11 +879,21 @@
         headers: Object.assign({ 'Content-Type': 'application/json' }, ghAuthHeaders()),
         body: JSON.stringify(body)
       });
+      if (putRes.status === 401 || putRes.status === 403) {
+        // Token is invalid/expired/revoked — forget it and force the input form
+        // back open so this failure can't silently repeat unnoticed.
+        githubToken = null;
+        try { localStorage.removeItem(GH_TOKEN_STORAGE_KEY); } catch (e) {}
+        ghTokenInput.value = '';
+        refreshGhFormVisibility();
+        throw new Error('トークンが無効です（期限切れまたは失効）。新しいトークンを発行して保存し直してください。');
+      }
       if (!putRes.ok) throw new Error(`共有に失敗しました (${putRes.status})`);
       const result = await putRes.json();
       cfg.githubPath = path;
       cfg.githubSha = result.content && result.content.sha;
       loadedGitHubPaths.add(path);
+      ghStatusEl.className = '';
       ghStatusEl.textContent = `${filename} を共有しました。みんなが見られるようになりました。`;
     } catch (e) {
       ghStatusEl.className = 'error';
@@ -891,18 +901,43 @@
     }
   }
 
-  ghSaveBtn.addEventListener('click', () => {
+  ghSaveBtn.addEventListener('click', async () => {
     const token = ghTokenInput.value.trim();
     if (!token) {
       ghStatusEl.className = 'error';
       ghStatusEl.textContent = 'トークンを入力してください。';
       return;
     }
-    githubToken = token;
-    try { localStorage.setItem(GH_TOKEN_STORAGE_KEY, token); } catch (e) {}
     ghStatusEl.className = '';
-    ghStatusEl.textContent = 'トークンを保存しました。アップロードしたデータは自動で共有されます。';
-    refreshGhFormVisibility();
+    ghStatusEl.textContent = 'トークンを確認中...';
+    ghSaveBtn.disabled = true;
+    try {
+      const checkRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}`, {
+        headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' }
+      });
+      if (checkRes.status === 401 || checkRes.status === 403) {
+        ghStatusEl.className = 'error';
+        ghStatusEl.textContent = 'このトークンは無効です。GitHubで新しいトークンを発行してください。';
+        ghSaveBtn.disabled = false;
+        return;
+      }
+      if (!checkRes.ok) {
+        ghStatusEl.className = 'error';
+        ghStatusEl.textContent = `トークンの確認に失敗しました (${checkRes.status})`;
+        ghSaveBtn.disabled = false;
+        return;
+      }
+      githubToken = token;
+      try { localStorage.setItem(GH_TOKEN_STORAGE_KEY, token); } catch (e) {}
+      ghStatusEl.className = '';
+      ghStatusEl.textContent = 'トークンを確認・保存しました。アップロードしたデータは自動で共有されます。';
+      refreshGhFormVisibility();
+    } catch (e) {
+      ghStatusEl.className = 'error';
+      ghStatusEl.textContent = 'トークンの確認中にエラーが発生しました: ' + e.message;
+    } finally {
+      ghSaveBtn.disabled = false;
+    }
   });
 
   // Always load shared data on page open — no setup required to view it.
