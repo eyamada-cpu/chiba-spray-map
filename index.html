@@ -730,7 +730,7 @@
         try {
           const text = reader.result;
           const cfg = ingestGeoJSON(file.name, text, { fitBounds: true });
-          if (typeof pushFileToGitHub === 'function' && githubSettings && githubSettings.repo && githubSettings.token) {
+          if (typeof pushFileToGitHub === 'function' && githubToken) {
             pushFileToGitHub(cfg, file.name, text);
           }
         } catch (e) {
