@@ -106,6 +106,9 @@
   #gh-note{font-size:10px;color:var(--text-sub);margin-top:2px;line-height:1.5;}
   #gh-view-status{font-size:11.5px;color:var(--text-sub);}
   #gh-view-status.error{color:#dc2626;}
+  .hidden{display:none !important;}
+  #gh-connected-status{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;color:#0a7a3f;background:#eafaf1;border:1px solid #bfe8cf;border-radius:6px;padding:8px 10px;}
+  #gh-connected-status .reset-btn{padding:0;}
 
   #panel-footer{padding:10px 16px;border-top:1px solid var(--border);font-size:10.5px;color:var(--text-sub);}
 
@@ -203,6 +206,10 @@
           <div class="gh-btn-row">
             <button class="upload-btn" id="gh-save-btn" type="button">トークンを保存</button>
           </div>
+        </div>
+        <div id="gh-connected-status" class="hidden">
+          <span>✓ アップロード用トークン設定済み</span>
+          <button class="reset-btn" id="gh-change-btn" type="button">変更／解除</button>
         </div>
         <div id="gh-status"></div>
         <div id="gh-note">閲覧は誰でもトークン不要です。アップロードして全員に共有したい場合のみトークンが必要です。トークンはこのブラウザ内にのみ保存され、GitHub以外には送信されません。</div>
@@ -765,6 +772,9 @@
   const ghSaveBtn = document.getElementById('gh-save-btn');
   const ghStatusEl = document.getElementById('gh-status');
   const ghViewStatusEl = document.getElementById('gh-view-status');
+  const ghSettingsForm = document.getElementById('github-settings');
+  const ghConnectedStatus = document.getElementById('gh-connected-status');
+  const ghChangeBtn = document.getElementById('gh-change-btn');
   const GH_TOKEN_STORAGE_KEY = 'chibaGuideMap.github.token.v1';
   const loadedGitHubPaths = new Set();
 
@@ -772,10 +782,34 @@
   try { githubToken = localStorage.getItem(GH_TOKEN_STORAGE_KEY) || null; } catch (e) {}
   if (githubToken) ghTokenInput.value = githubToken;
 
+  function refreshGhFormVisibility(){
+    if (githubToken) {
+      ghSettingsForm.classList.add('hidden');
+      ghConnectedStatus.classList.remove('hidden');
+    } else {
+      ghSettingsForm.classList.remove('hidden');
+      ghConnectedStatus.classList.add('hidden');
+    }
+  }
+  refreshGhFormVisibility();
+
+  ghChangeBtn.addEventListener('click', () => {
+    githubToken = null;
+    try { localStorage.removeItem(GH_TOKEN_STORAGE_KEY); } catch (e) {}
+    ghTokenInput.value = '';
+    ghStatusEl.className = '';
+    ghStatusEl.textContent = '';
+    refreshGhFormVisibility();
+  });
+
+  // Public, unauthenticated headers — used for viewing shared data so that a
+  // missing/expired token never breaks read access for anyone.
+  function ghPublicHeaders(){
+    return { Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' };
+  }
+  // Authenticated headers — used only when actually writing (uploading) data.
   function ghAuthHeaders(){
-    const headers = { Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' };
-    if (githubToken) headers.Authorization = 'Bearer ' + githubToken;
-    return headers;
+    return Object.assign(ghPublicHeaders(), { Authorization: 'Bearer ' + githubToken });
   }
 
   function utf8ToBase64(str){
@@ -794,7 +828,7 @@
     ghViewStatusEl.textContent = '共有データを確認中...';
     try {
       const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${GITHUB_PATH}`;
-      const res = await fetch(url, { headers: ghAuthHeaders() });
+      const res = await fetch(url, { headers: ghPublicHeaders() });
       if (res.status === 404) {
         ghViewStatusEl.textContent = 'まだ共有データはありません。';
         return;
@@ -868,6 +902,7 @@
     try { localStorage.setItem(GH_TOKEN_STORAGE_KEY, token); } catch (e) {}
     ghStatusEl.className = '';
     ghStatusEl.textContent = 'トークンを保存しました。アップロードしたデータは自動で共有されます。';
+    refreshGhFormVisibility();
   });
 
   // Always load shared data on page open — no setup required to view it.
