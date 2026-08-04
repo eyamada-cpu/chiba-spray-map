@@ -95,6 +95,16 @@
   #upload-msg{font-size:11px;margin-top:6px;color:var(--text-sub);}
   #upload-msg.error{color:#dc2626;}
 
+  /* github sync */
+  #github-settings{display:flex;flex-direction:column;gap:8px;}
+  #github-settings input{width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:6px;font-size:12.5px;background:#fff;color:var(--text);}
+  .gh-btn-row{display:flex;gap:8px;}
+  .gh-btn-row .upload-btn{margin-top:0;flex:1;text-align:center;border:none;}
+  .gh-btn-row .reset-btn{border:1px solid var(--border);border-radius:6px;padding:7px 14px;text-decoration:none;}
+  #gh-status{font-size:11px;margin-top:6px;color:var(--text-sub);min-height:14px;}
+  #gh-status.error{color:#dc2626;}
+  #gh-note{font-size:10px;color:var(--text-sub);margin-top:2px;line-height:1.5;}
+
   #panel-footer{padding:10px 16px;border-top:1px solid var(--border);font-size:10.5px;color:var(--text-sub);}
 
   /* panel resizer */
@@ -177,6 +187,21 @@
           <input type="file" id="geojson-upload" accept=".geojson,.json,application/geo+json" multiple>
         </div>
         <div id="upload-msg"></div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">GitHub連携（アップロードデータの保管）</div>
+        <div id="github-settings">
+          <input type="text" id="gh-repo" placeholder="リポジトリ（例：owner/repo）">
+          <input type="password" id="gh-token" placeholder="Personal Access Token">
+          <input type="text" id="gh-path" placeholder="保存先フォルダ（例：data/uploads）">
+          <div class="gh-btn-row">
+            <button class="upload-btn" id="gh-save-btn" type="button">接続を保存</button>
+            <button class="reset-btn" id="gh-refresh-btn" type="button">再読込</button>
+          </div>
+        </div>
+        <div id="gh-status"></div>
+        <div id="gh-note">トークンはこのブラウザ内にのみ保存され、GitHub以外には送信されません。</div>
       </div>
 
       <div class="section">
@@ -649,6 +674,37 @@
     return null;
   }
 
+  function ingestGeoJSON(filename, text, opts){
+    opts = opts || {};
+    const parsed = JSON.parse(text);
+    const fc = normalizeGeoJSON(parsed);
+    if (!fc.features.length) throw new Error('フィーチャがありません');
+    customLayerCount++;
+    const id = 'custom_' + Date.now() + '_' + customLayerCount;
+    const color = PALETTE[(customLayerCount - 1) % PALETTE.length];
+    const primaryProp = detectPrimaryProp(fc.features);
+    const cfg = {
+      id: id,
+      label: filename.replace(/\.(geojson|json)$/i, ''),
+      data: fc,
+      nameProps: primaryProp ? [primaryProp] : [],
+      primaryProp: primaryProp,
+      showAllProperties: true,
+      removable: true,
+      order: 100 + customLayerCount,
+      style: { fillColor: color, fillOpacity: 0.55, color: color, weight: 2, opacity: 0.9 },
+      defaultStyle: { fillColor: color, fillOpacity: 0.55, color: color, weight: 2, opacity: 0.9 },
+      leafletLayer: null,
+      visible: true,
+      sourceFileName: filename,
+      githubPath: opts.githubPath || null,
+      githubSha: opts.githubSha || null
+    };
+    layerConfig[id] = cfg;
+    addLayer(cfg, { fitBounds: !!opts.fitBounds });
+    return cfg;
+  }
+
   function handleFiles(fileList){
     const files = Array.from(fileList || []);
     if (!files.length) return;
@@ -661,29 +717,11 @@
       const reader = new FileReader();
       reader.onload = () => {
         try {
-          const parsed = JSON.parse(reader.result);
-          const fc = normalizeGeoJSON(parsed);
-          if (!fc.features.length) throw new Error('フィーチャがありません');
-          customLayerCount++;
-          const id = 'custom_' + Date.now() + '_' + customLayerCount;
-          const color = PALETTE[(customLayerCount - 1) % PALETTE.length];
-          const primaryProp = detectPrimaryProp(fc.features);
-          const cfg = {
-            id: id,
-            label: file.name.replace(/\.(geojson|json)$/i, ''),
-            data: fc,
-            nameProps: primaryProp ? [primaryProp] : [],
-            primaryProp: primaryProp,
-            showAllProperties: true,
-            removable: true,
-            order: 100 + customLayerCount,
-            style: { fillColor: color, fillOpacity: 0.55, color: color, weight: 2, opacity: 0.9 },
-            defaultStyle: { fillColor: color, fillOpacity: 0.55, color: color, weight: 2, opacity: 0.9 },
-            leafletLayer: null,
-            visible: true
-          };
-          layerConfig[id] = cfg;
-          addLayer(cfg, { fitBounds: true });
+          const text = reader.result;
+          const cfg = ingestGeoJSON(file.name, text, { fitBounds: true });
+          if (typeof pushFileToGitHub === 'function' && githubSettings && githubSettings.repo && githubSettings.token) {
+            pushFileToGitHub(cfg, file.name, text);
+          }
         } catch (e) {
           failed.push(file.name + '（' + e.message + '）');
         } finally {
@@ -712,6 +750,146 @@
     handleFiles(e.target.files);
     uploadInput.value = '';
   });
+
+  // ---------------- GitHub sync (store uploaded data in a repo) ----------------
+  const ghRepoInput = document.getElementById('gh-repo');
+  const ghTokenInput = document.getElementById('gh-token');
+  const ghPathInput = document.getElementById('gh-path');
+  const ghSaveBtn = document.getElementById('gh-save-btn');
+  const ghRefreshBtn = document.getElementById('gh-refresh-btn');
+  const ghStatusEl = document.getElementById('gh-status');
+  const GH_STORAGE_KEY = 'chibaGuideMap.github.v1';
+  const loadedGitHubPaths = new Set();
+
+  function loadGitHubSettings(){
+    try {
+      const raw = localStorage.getItem(GH_STORAGE_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch (e) { return null; }
+  }
+  function saveGitHubSettingsToStorage(settings){
+    try { localStorage.setItem(GH_STORAGE_KEY, JSON.stringify(settings)); } catch (e) {}
+  }
+
+  let githubSettings = loadGitHubSettings();
+  ghPathInput.value = (githubSettings && githubSettings.path) || 'data/uploads';
+  if (githubSettings) {
+    ghRepoInput.value = githubSettings.repo || '';
+    ghTokenInput.value = githubSettings.token || '';
+  }
+
+  function ghHeaders(){
+    return {
+      Authorization: 'Bearer ' + githubSettings.token,
+      Accept: 'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28'
+    };
+  }
+
+  function utf8ToBase64(str){
+    const bytes = new TextEncoder().encode(str);
+    let binary = '';
+    const chunkSize = 0x8000;
+    for (let i = 0; i < bytes.length; i += chunkSize) {
+      binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunkSize));
+    }
+    return btoa(binary);
+  }
+
+  async function loadStoredDataFromGitHub(){
+    if (!githubSettings || !githubSettings.repo || !githubSettings.token) {
+      ghStatusEl.className = '';
+      ghStatusEl.textContent = 'リポジトリとトークンを入力して保存してください。';
+      return;
+    }
+    ghStatusEl.className = '';
+    ghStatusEl.textContent = '保存済みデータを確認中...';
+    try {
+      const url = `https://api.github.com/repos/${githubSettings.repo}/contents/${githubSettings.path}`;
+      const res = await fetch(url, { headers: ghHeaders() });
+      if (res.status === 404) {
+        ghStatusEl.textContent = '保存済みデータはまだありません（初回アップロード時に自動作成されます）。';
+        return;
+      }
+      if (!res.ok) throw new Error(`GitHub APIエラー (${res.status})`);
+      const items = await res.json();
+      const files = (Array.isArray(items) ? items : []).filter(it => it.type === 'file' && /\.(geojson|json)$/i.test(it.name));
+      let loaded = 0;
+      for (const item of files) {
+        if (loadedGitHubPaths.has(item.path)) continue;
+        try {
+          const textRes = await fetch(item.download_url);
+          const text = await textRes.text();
+          ingestGeoJSON(item.name, text, { fitBounds: false, githubPath: item.path, githubSha: item.sha });
+          loadedGitHubPaths.add(item.path);
+          loaded++;
+        } catch (e) {
+          console.error('GitHubからの読み込みに失敗:', item.name, e);
+        }
+      }
+      ghStatusEl.textContent = loaded > 0
+        ? `${loaded}件のデータをGitHubから読み込みました。`
+        : '新規データはありませんでした（すでに読み込み済みです）。';
+    } catch (e) {
+      ghStatusEl.className = 'error';
+      ghStatusEl.textContent = '読み込みに失敗しました: ' + e.message;
+    }
+  }
+
+  async function pushFileToGitHub(cfg, filename, text){
+    if (!githubSettings || !githubSettings.repo || !githubSettings.token) return;
+    const path = `${githubSettings.path}/${filename}`;
+    ghStatusEl.className = '';
+    ghStatusEl.textContent = `${filename} をGitHubに保存中...`;
+    try {
+      let sha = cfg.githubSha || null;
+      if (!sha) {
+        const getRes = await fetch(`https://api.github.com/repos/${githubSettings.repo}/contents/${path}`, { headers: ghHeaders() });
+        if (getRes.ok) {
+          const info = await getRes.json();
+          sha = info.sha;
+        }
+      }
+      const body = { message: `アップロード: ${filename}`, content: utf8ToBase64(text) };
+      if (sha) body.sha = sha;
+      const putRes = await fetch(`https://api.github.com/repos/${githubSettings.repo}/contents/${path}`, {
+        method: 'PUT',
+        headers: Object.assign({ 'Content-Type': 'application/json' }, ghHeaders()),
+        body: JSON.stringify(body)
+      });
+      if (!putRes.ok) throw new Error(`保存失敗 (${putRes.status})`);
+      const result = await putRes.json();
+      cfg.githubPath = path;
+      cfg.githubSha = result.content && result.content.sha;
+      loadedGitHubPaths.add(path);
+      ghStatusEl.textContent = `${filename} をGitHubに保存しました。`;
+    } catch (e) {
+      ghStatusEl.className = 'error';
+      ghStatusEl.textContent = `${filename} の保存に失敗しました: ${e.message}`;
+    }
+  }
+
+  ghSaveBtn.addEventListener('click', () => {
+    const repo = ghRepoInput.value.trim();
+    const token = ghTokenInput.value.trim();
+    const path = (ghPathInput.value.trim() || 'data/uploads').replace(/^\/+|\/+$/g, '');
+    if (!repo || !token) {
+      ghStatusEl.className = 'error';
+      ghStatusEl.textContent = 'リポジトリとトークンを入力してください。';
+      return;
+    }
+    githubSettings = { repo, token, path };
+    saveGitHubSettingsToStorage(githubSettings);
+    ghStatusEl.className = '';
+    ghStatusEl.textContent = '接続情報を保存しました。';
+    loadStoredDataFromGitHub();
+  });
+
+  ghRefreshBtn.addEventListener('click', loadStoredDataFromGitHub);
+
+  if (githubSettings && githubSettings.repo && githubSettings.token) {
+    loadStoredDataFromGitHub();
+  }
 
   // ---------------- Search ----------------
   const searchInput = document.getElementById('search-input');
