@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>千葉県 支所・地区 ポリゴンマップ</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+<style>
+  :root{
+    --bg:#f4f6f8;
+    --panel-bg:#ffffff;
+    --border:#dde2e8;
+    --text:#1f2733;
+    --text-sub:#6b7480;
+    --accent:#2563eb;
+    --accent-soft:#e8effe;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;color:var(--text);background:var(--bg);}
+  #app{position:relative;display:flex;height:100vh;width:100vw;overflow:hidden;}
+
+  /* ---------- Sidebar ---------- */
+  #panel{
+    width:340px;min-width:340px;height:100%;background:var(--panel-bg);
+    border-right:1px solid var(--border);display:flex;flex-direction:column;
+    overflow:hidden;
+  }
+  #panel-header{padding:16px 18px 12px;border-bottom:1px solid var(--border);}
+  #panel-header h1{font-size:15px;margin:0 0 2px;font-weight:700;}
+  #panel-header p{font-size:11px;color:var(--text-sub);margin:0;}
+  #panel-scroll{flex:1;overflow-y:auto;padding:14px 16px 24px;}
+
+  .section{margin-bottom:18px;}
+  .section-title{font-size:12px;font-weight:700;color:var(--text-sub);letter-spacing:.03em;margin-bottom:8px;text-transform:uppercase;}
+
+  /* search */
+  #search-controls{display:flex;flex-direction:column;gap:8px;}
+  select, input[type="text"]{
+    width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:6px;
+    font-size:13px;background:#fff;color:var(--text);
+  }
+  #search-results{margin-top:8px;max-height:220px;overflow-y:auto;border:1px solid var(--border);border-radius:6px;display:none;}
+  #search-results.show{display:block;}
+  .result-item{padding:8px 10px;font-size:12.5px;cursor:pointer;border-bottom:1px solid #eef1f4;display:flex;justify-content:space-between;gap:6px;}
+  .result-item:last-child{border-bottom:none;}
+  .result-item:hover{background:var(--accent-soft);}
+  .result-item .tag{font-size:10px;color:#fff;background:#9aa4b2;border-radius:4px;padding:1px 6px;flex-shrink:0;height:fit-content;}
+  .result-item .tag.branch{background:#2f8f5b;}
+  .result-item .tag.district{background:#d97a1f;}
+  #search-meta{font-size:11px;color:var(--text-sub);margin-top:6px;}
+
+  /* layer cards */
+  .layer-card{border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden;background:#fff;}
+  .layer-head{display:flex;align-items:center;gap:8px;padding:10px 12px;cursor:pointer;user-select:none;}
+  .layer-head:hover{background:#fafbfc;}
+  .layer-head .swatch{width:14px;height:14px;border-radius:3px;flex-shrink:0;border:1px solid rgba(0,0,0,.15);}
+  .layer-head .name{font-size:13px;font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .icon-btn{border:none;background:none;color:var(--text-sub);cursor:pointer;font-size:12px;line-height:1;padding:0;margin:0;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .icon-btn:hover{color:var(--accent);}
+  .name-edit-input{flex:1;font-size:13px;padding:2px 6px;border:1px solid var(--accent);border-radius:4px;min-width:0;}
+  .layer-head .count{font-size:11px;color:var(--text-sub);}
+  .layer-head .chev{font-size:10px;color:var(--text-sub);transition:transform .15s;}
+  .layer-card.collapsed .chev{transform:rotate(-90deg);}
+  .layer-card.collapsed .layer-body{display:none;}
+  .layer-body{padding:4px 12px 12px;border-top:1px solid var(--border);}
+
+  .ctrl-row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 0;}
+  .ctrl-row label{font-size:12px;color:var(--text-sub);}
+  .ctrl-row .val{font-size:11px;color:var(--text-sub);min-width:32px;text-align:right;}
+  input[type="color"]{width:36px;height:24px;border:1px solid var(--border);border-radius:4px;padding:0;background:none;cursor:pointer;}
+  input[type="range"]{flex:1;margin:0 8px;accent-color:var(--accent);}
+  .range-wrap{display:flex;align-items:center;flex:1;}
+
+  .toggle{position:relative;width:36px;height:20px;flex-shrink:0;}
+  .toggle input{opacity:0;width:0;height:0;}
+  .toggle span{position:absolute;inset:0;background:#c7ccd3;border-radius:20px;cursor:pointer;transition:.15s;}
+  .toggle span:before{content:"";position:absolute;width:16px;height:16px;left:2px;top:2px;background:#fff;border-radius:50%;transition:.15s;}
+  .toggle input:checked + span{background:var(--accent);}
+  .toggle input:checked + span:before{transform:translateX(16px);}
+
+  .reset-btn{font-size:11px;color:var(--accent);background:none;border:none;cursor:pointer;padding:4px 0;text-decoration:underline;}
+  .remove-btn{font-size:11px;color:#dc2626;background:none;border:none;cursor:pointer;padding:4px 0;text-decoration:underline;}
+
+  /* basemap switch */
+  #basemap-switch{display:flex;border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+  #basemap-switch label{flex:1;text-align:center;font-size:12.5px;padding:8px 0;cursor:pointer;color:var(--text-sub);background:#fff;user-select:none;}
+  #basemap-switch label.active{background:var(--accent);color:#fff;font-weight:600;}
+  #basemap-switch input{display:none;}
+
+  /* upload */
+  #upload-drop{border:1px dashed var(--border);border-radius:8px;padding:14px 10px;text-align:center;font-size:11.5px;color:var(--text-sub);line-height:1.6;}
+  #upload-drop input{display:none;}
+  .upload-btn{display:inline-block;padding:7px 14px;background:var(--accent);color:#fff;border-radius:6px;font-size:12.5px;cursor:pointer;margin-top:6px;}
+  .upload-btn:hover{opacity:.9;}
+  #upload-msg{font-size:11px;margin-top:6px;color:var(--text-sub);}
+  #upload-msg.error{color:#dc2626;}
+
+  #panel-footer{padding:10px 16px;border-top:1px solid var(--border);font-size:10.5px;color:var(--text-sub);}
+
+  /* panel resizer */
+  #panel-resizer{
+    width:6px;flex-shrink:0;cursor:col-resize;position:relative;z-index:10;background:transparent;
+  }
+  #panel-resizer::after{
+    content:'';position:absolute;top:0;bottom:0;left:2px;width:2px;background:var(--border);
+  }
+  #panel-resizer:hover::after, #panel-resizer.active::after{background:var(--accent);}
+
+  /* map */
+  #map{flex:1;height:100%;}
+  .leaflet-overlay-pane canvas{mix-blend-mode:multiply;}
+  .leaflet-popup-content{font-size:12.5px;line-height:1.6;}
+  .leaflet-popup-content b{font-size:13px;}
+
+  ::-webkit-scrollbar{width:8px;}
+  ::-webkit-scrollbar-thumb{background:#ccd2da;border-radius:4px;}
+
+  /* loading overlay */
+  #loading-overlay{
+    position:absolute;inset:0;z-index:2000;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+    background:var(--bg);
+  }
+  #loading-overlay.hidden{display:none;}
+  .spinner{
+    width:38px;height:38px;border-radius:50%;
+    border:4px solid #d7dde5;border-top-color:var(--accent);
+    animation:spin .8s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+  #loading-text{font-size:13px;color:var(--text-sub);}
+  #loading-progress{font-size:11px;color:#9aa4b2;}
+</style>
+</head>
+<body>
+<div id="app">
+  <aside id="panel">
+    <div id="panel-header">
+      <h1>千葉県 支所・地区 ポリゴンマップ</h1>
+      <p>レイヤ表示 / スタイル調整 / 名称検索</p>
+    </div>
+    <div id="panel-scroll">
+
+      <div class="section">
+        <div class="section-title">ベースマップ</div>
+        <div id="basemap-switch">
+          <label class="active" data-value="pale">
+            <input type="radio" name="basemap" value="pale" checked>地図
+          </label>
+          <label data-value="aerial">
+            <input type="radio" name="basemap" value="aerial">航空写真
+          </label>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">検索</div>
+        <div id="search-controls">
+          <select id="search-target">
+            <option value="all">すべてのレイヤ</option>
+            <option value="branch">支所（市町村名も可）</option>
+            <option value="district">地区</option>
+          </select>
+          <input type="text" id="search-input" placeholder="名称を入力（例：中央区 / 青葉町）" autocomplete="off">
+        </div>
+        <div id="search-results"></div>
+        <div id="search-meta"></div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">データ追加</div>
+        <div id="upload-drop">
+          GeoJSONファイル（.geojson / .json）を追加すると<br>他のレイヤと同様に表示・スタイル調整・検索ができます
+          <div>
+            <label class="upload-btn" for="geojson-upload">ファイルを選択</label>
+          </div>
+          <input type="file" id="geojson-upload" accept=".geojson,.json,application/geo+json" multiple>
+        </div>
+        <div id="upload-msg"></div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">レイヤ</div>
+        <div id="layer-list"></div>
+      </div>
+
+    </div>
+    <div id="panel-footer">
+      地図：国土地理院タイル（地図／航空写真） ／ データ：千葉県各支所・千葉県地区・アップロードファイル
+    </div>
+  </aside>
+  <div id="panel-resizer" title="ドラッグしてパネル幅を調整"></div>
+  <div id="map"></div>
+
+  <div id="loading-overlay">
+    <div class="spinner"></div>
+    <div id="loading-text">地図データを読み込み中...</div>
+    <div id="loading-progress"></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(function(){
+
+  // ---------------- Loading overlay control ----------------
+  const overlayEl = document.getElementById('loading-overlay');
+  const progressEl = document.getElementById('loading-progress');
+
+  function loadScript(src){
+    return new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = src;
+      s.onload = () => resolve();
+      s.onerror = () => reject(new Error('読み込み失敗: ' + src));
+      document.body.appendChild(s);
+    });
+  }
+
+  function hideOverlay(){
+    overlayEl.classList.add('hidden');
+  }
+
+  function showError(msg){
+    document.getElementById('loading-text').textContent = 'データの読み込みに失敗しました';
+    progressEl.textContent = msg;
+  }
+
+  progressEl.textContent = '支所・地区データを取得中...';
+
+  Promise.all([
+    loadScript('data/branches.js'),
+    loadScript('data/districts.js')
+  ]).then(() => {
+    progressEl.textContent = 'レイヤを構築中...';
+    // Let the browser paint the progress text before the heavy synchronous work runs
+    setTimeout(() => {
+      try {
+        initApp();
+        hideOverlay();
+      } catch (e) {
+        console.error(e);
+        showError(e.message);
+      }
+    }, 30);
+  }).catch(err => {
+    console.error(err);
+    showError(err.message);
+  });
+
+  function initApp(){
+
+  // ---------------- Map init ----------------
+  const map = L.map('map', { preferCanvas: true, zoomControl: true }).setView([35.6, 140.1], 10);
+
+  const paleLayer = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank">国土地理院</a>',
+    maxZoom: 18,
+    minZoom: 6
+  });
+  const aerialLayer = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg', {
+    attribution: '&copy; <a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank">国土地理院</a>（航空写真）',
+    maxZoom: 18,
+    minZoom: 6
+  });
+  paleLayer.addTo(map);
+
+  document.querySelectorAll('#basemap-switch input[name="basemap"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      if (!radio.checked) return;
+      document.querySelectorAll('#basemap-switch label').forEach(l => l.classList.remove('active'));
+      const parentLabel = radio.parentElement;
+      if (parentLabel && parentLabel.classList) parentLabel.classList.add('active');
+      if (radio.value === 'aerial') {
+        map.removeLayer(paleLayer);
+        aerialLayer.addTo(map);
+      } else {
+        map.removeLayer(aerialLayer);
+        paleLayer.addTo(map);
+      }
+    });
+  });
+
+  const canvasRenderer = L.canvas({ padding: 0.4 });
+
+  // ---------------- Layer configuration ----------------
+  const layerConfig = {
+    branch: {
+      id: 'branch',
+      label: '千葉県 各支所',
+      data: BRANCH_DATA,
+      nameProps: ['支所', '市町村'],
+      primaryProp: '支所',
+      showAllProperties: false,
+      removable: false,
+      order: 1,
+      style: { fillColor: '#2f8f5b', fillOpacity: 0.30, color: '#2f8f5b', weight: 2, opacity: 0.9 },
+      defaultStyle: { fillColor: '#2f8f5b', fillOpacity: 0.30, color: '#2f8f5b', weight: 2, opacity: 0.9 },
+      leafletLayer: null,
+      visible: true
+    },
+    district: {
+      id: 'district',
+      label: '千葉県 地区',
+      data: DISTRICT_DATA,
+      nameProps: ['S_NAME'],
+      primaryProp: 'S_NAME',
+      showAllProperties: false,
+      removable: false,
+      order: 2,
+      style: { fillColor: '#d97a1f', fillOpacity: 0.28, color: '#d97a1f', weight: 1, opacity: 0.85 },
+      defaultStyle: { fillColor: '#d97a1f', fillOpacity: 0.28, color: '#d97a1f', weight: 1, opacity: 0.85 },
+      leafletLayer: null,
+      visible: true
+    }
+  };
+
+  const searchIndex = []; // { name, subName, layerKey, sublayer, bounds }
+  const layerListEl = document.getElementById('layer-list');
+  const searchTargetEl = document.getElementById('search-target');
+
+  function popupHtml(cfg, props){
+    props = props || {};
+    let rows = '';
+    if (cfg.showAllProperties) {
+      Object.keys(props).slice(0, 15).forEach(k => {
+        const v = props[k];
+        if (v !== undefined && v !== null && v !== '') rows += `<div>${k}：${v}</div>`;
+      });
+    } else {
+      cfg.nameProps.forEach(p => {
+        if (props[p] !== undefined && props[p] !== null && props[p] !== '') {
+          rows += `<div>${p}：${props[p]}</div>`;
+        }
+      });
+    }
+    return `<b>${cfg.label}</b>${rows}`;
+  }
+
+  function computeSearchEntry(cfg, feature, sublayer){
+    const props = (feature && feature.properties) || {};
+    let name = cfg.primaryProp ? props[cfg.primaryProp] : null;
+    if (name === undefined || name === null || name === '') name = cfg.label;
+    const subName = cfg.nameProps.slice(1).map(p => props[p]).filter(Boolean).join(' ');
+    return {
+      name: String(name),
+      subName: subName,
+      layerKey: cfg.id,
+      sublayer: sublayer,
+      bounds: sublayer.getBounds ? sublayer.getBounds() : null
+    };
+  }
+
+  function rebuildSearchIndexForLayer(cfg){
+    for (let i = searchIndex.length - 1; i >= 0; i--) {
+      if (searchIndex[i].layerKey === cfg.id) searchIndex.splice(i, 1);
+    }
+    cfg.leafletLayer.eachLayer(sublayer => {
+      searchIndex.push(computeSearchEntry(cfg, sublayer.feature, sublayer));
+    });
+  }
+
+  function collectPropertyKeys(features, limit){
+    const set = new Set();
+    for (const f of features) {
+      if (f.properties) {
+        Object.keys(f.properties).forEach(k => set.add(k));
+      }
+      if (limit && set.size >= limit) break;
+    }
+    return Array.from(set);
+  }
+
+  function buildLayer(cfg){
+    const gj = L.geoJSON(cfg.data, {
+      renderer: canvasRenderer,
+      style: () => cfg.style,
+      onEachFeature: (feature, sublayer) => {
+        sublayer.bindPopup(() => popupHtml(cfg, feature.properties || {}));
+        searchIndex.push(computeSearchEntry(cfg, feature, sublayer));
+      }
+    });
+    cfg.leafletLayer = gj;
+    if (cfg.visible) gj.addTo(map);
+  }
+
+  function addSearchTargetOption(cfg){
+    const opt = document.createElement('option');
+    opt.value = cfg.id;
+    opt.textContent = cfg.label;
+    opt.dataset.layerId = cfg.id;
+    searchTargetEl.appendChild(opt);
+    cfg._optionEl = opt;
+  }
+
+  function removeSearchTargetOption(cfg){
+    const opt = searchTargetEl.querySelector(`option[data-layer-id="${cfg.id}"]`);
+    if (opt) opt.remove();
+    if (searchTargetEl.value === cfg.id) searchTargetEl.value = 'all';
+  }
+
+  // ---------------- Layer panel UI ----------------
+  function createLayerCard(cfg){
+    const card = document.createElement('div');
+    card.className = 'layer-card';
+    card.dataset.layerId = cfg.id;
+
+    card.innerHTML = `
+      <div class="layer-head" data-role="toggle-collapse">
+        <span class="swatch" style="background:${cfg.style.fillColor}"></span>
+        <span class="name" data-role="nameDisplay">${cfg.label}</span>
+        ${cfg.removable ? '<button class="icon-btn" data-role="rename" title="名前を変更" onclick="event.stopPropagation()">✎</button>' : ''}
+        <span class="count">${cfg.data.features.length.toLocaleString()}件</span>
+        <button class="icon-btn" data-role="zoom" title="このレイヤ全体にズーム" onclick="event.stopPropagation()">🔍</button>
+        <label class="toggle" onclick="event.stopPropagation()">
+          <input type="checkbox" data-role="visible" checked>
+          <span></span>
+        </label>
+        <span class="chev">▾</span>
+      </div>
+      <div class="layer-body">
+        ${cfg.removable ? `
+        <div class="ctrl-row">
+          <label>検索対象フィールド</label>
+          <select data-role="nameField" style="max-width:170px;" onclick="event.stopPropagation()"></select>
+        </div>` : ''}
+        <div class="ctrl-row">
+          <label>塗りつぶし色</label>
+          <input type="color" data-role="fillColor" value="${cfg.style.fillColor}">
+        </div>
+        <div class="ctrl-row">
+          <label>塗りの透明度</label>
+          <div class="range-wrap">
+            <input type="range" data-role="fillOpacity" min="0" max="1" step="0.05" value="${cfg.style.fillOpacity}">
+          </div>
+          <span class="val" data-role="fillOpacityVal">${Math.round(cfg.style.fillOpacity*100)}%</span>
+        </div>
+        <div class="ctrl-row">
+          <label>枠線の色</label>
+          <input type="color" data-role="color" value="${cfg.style.color}">
+        </div>
+        <div class="ctrl-row">
+          <label>枠線の太さ</label>
+          <div class="range-wrap">
+            <input type="range" data-role="weight" min="0" max="10" step="1" value="${cfg.style.weight}">
+          </div>
+          <span class="val" data-role="weightVal">${cfg.style.weight}px</span>
+        </div>
+        <div class="ctrl-row">
+          <label>枠線の透明度</label>
+          <div class="range-wrap">
+            <input type="range" data-role="opacity" min="0" max="1" step="0.05" value="${cfg.style.opacity}">
+          </div>
+          <span class="val" data-role="opacityVal">${Math.round(cfg.style.opacity*100)}%</span>
+        </div>
+        <div class="ctrl-row" style="justify-content:flex-start;gap:16px;">
+          <button class="reset-btn" data-role="reset">初期値に戻す</button>
+          ${cfg.removable ? '<button class="remove-btn" data-role="remove">このレイヤを削除</button>' : ''}
+        </div>
+      </div>
+    `;
+    layerListEl.appendChild(card);
+
+    const head = card.querySelector('[data-role="toggle-collapse"]');
+    const visibleChk = card.querySelector('[data-role="visible"]');
+    const fillColorInput = card.querySelector('[data-role="fillColor"]');
+    const fillOpacityInput = card.querySelector('[data-role="fillOpacity"]');
+    const fillOpacityVal = card.querySelector('[data-role="fillOpacityVal"]');
+    const colorInput = card.querySelector('[data-role="color"]');
+    const weightInput = card.querySelector('[data-role="weight"]');
+    const weightVal = card.querySelector('[data-role="weightVal"]');
+    const opacityInput = card.querySelector('[data-role="opacity"]');
+    const opacityVal = card.querySelector('[data-role="opacityVal"]');
+    const resetBtn = card.querySelector('[data-role="reset"]');
+    const swatch = card.querySelector('.swatch');
+
+    head.addEventListener('click', () => card.classList.toggle('collapsed'));
+
+    const zoomBtn = card.querySelector('[data-role="zoom"]');
+    zoomBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (!cfg.visible) {
+        cfg.visible = true;
+        cfg.leafletLayer.addTo(map);
+        visibleChk.checked = true;
+      }
+      if (cfg.leafletLayer && cfg.leafletLayer.getBounds && cfg.leafletLayer.getBounds().isValid()) {
+        map.fitBounds(cfg.leafletLayer.getBounds(), { padding: [30,30] });
+      }
+    });
+
+    function applyStyle(){
+      cfg.leafletLayer.setStyle(cfg.style);
+      swatch.style.background = cfg.style.fillColor;
+    }
+
+    visibleChk.addEventListener('click', (e) => e.stopPropagation());
+    visibleChk.addEventListener('change', () => {
+      cfg.visible = visibleChk.checked;
+      if (cfg.visible) { cfg.leafletLayer.addTo(map); }
+      else { map.removeLayer(cfg.leafletLayer); }
+    });
+
+    fillColorInput.addEventListener('input', () => { cfg.style.fillColor = fillColorInput.value; applyStyle(); });
+    colorInput.addEventListener('input', () => { cfg.style.color = colorInput.value; applyStyle(); });
+    fillOpacityInput.addEventListener('input', () => {
+      cfg.style.fillOpacity = parseFloat(fillOpacityInput.value);
+      fillOpacityVal.textContent = Math.round(cfg.style.fillOpacity*100)+'%';
+      applyStyle();
+    });
+    weightInput.addEventListener('input', () => {
+      cfg.style.weight = parseInt(weightInput.value,10);
+      weightVal.textContent = cfg.style.weight+'px';
+      applyStyle();
+    });
+    opacityInput.addEventListener('input', () => {
+      cfg.style.opacity = parseFloat(opacityInput.value);
+      opacityVal.textContent = Math.round(cfg.style.opacity*100)+'%';
+      applyStyle();
+    });
+    resetBtn.addEventListener('click', () => {
+      cfg.style = Object.assign({}, cfg.defaultStyle);
+      fillColorInput.value = cfg.style.fillColor;
+      colorInput.value = cfg.style.color;
+      fillOpacityInput.value = cfg.style.fillOpacity;
+      fillOpacityVal.textContent = Math.round(cfg.style.fillOpacity*100)+'%';
+      weightInput.value = cfg.style.weight;
+      weightVal.textContent = cfg.style.weight+'px';
+      opacityInput.value = cfg.style.opacity;
+      opacityVal.textContent = Math.round(cfg.style.opacity*100)+'%';
+      applyStyle();
+    });
+
+    if (cfg.removable) {
+      const removeBtn = card.querySelector('[data-role="remove"]');
+      removeBtn.addEventListener('click', () => {
+        map.removeLayer(cfg.leafletLayer);
+        for (let i = searchIndex.length - 1; i >= 0; i--) {
+          if (searchIndex[i].layerKey === cfg.id) searchIndex.splice(i, 1);
+        }
+        removeSearchTargetOption(cfg);
+        delete layerConfig[cfg.id];
+        card.remove();
+        if (typeof runSearch === 'function') runSearch();
+      });
+
+      // ---- rename ----
+      const renameBtn = card.querySelector('[data-role="rename"]');
+      const nameDisplay = card.querySelector('[data-role="nameDisplay"]');
+      renameBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.className = 'name-edit-input';
+        input.value = cfg.label;
+        input.addEventListener('click', ev => ev.stopPropagation());
+        let committed = false;
+        function commit(){
+          if (committed) return;
+          committed = true;
+          const newLabel = input.value.trim() || cfg.label;
+          cfg.label = newLabel;
+          nameDisplay.textContent = newLabel;
+          if (cfg._optionEl) cfg._optionEl.textContent = newLabel;
+          if (input.parentNode) input.replaceWith(nameDisplay);
+          if (typeof runSearch === 'function') runSearch();
+        }
+        input.addEventListener('keydown', ev => {
+          if (ev.key === 'Enter') { ev.preventDefault(); commit(); }
+          if (ev.key === 'Escape') { input.value = cfg.label; commit(); }
+        });
+        input.addEventListener('blur', commit);
+        nameDisplay.replaceWith(input);
+        input.focus();
+        input.select();
+      });
+
+      // ---- search target field selector ----
+      const nameFieldSelect = card.querySelector('[data-role="nameField"]');
+      if (nameFieldSelect) {
+        const noneOpt = document.createElement('option');
+        noneOpt.value = '__none__';
+        noneOpt.textContent = '（自動／レイヤ名）';
+        nameFieldSelect.appendChild(noneOpt);
+        collectPropertyKeys(cfg.data.features, 50).forEach(k => {
+          const opt = document.createElement('option');
+          opt.value = k;
+          opt.textContent = k;
+          nameFieldSelect.appendChild(opt);
+        });
+        nameFieldSelect.value = cfg.primaryProp || '__none__';
+        nameFieldSelect.addEventListener('change', () => {
+          cfg.primaryProp = nameFieldSelect.value === '__none__' ? null : nameFieldSelect.value;
+          cfg.nameProps = cfg.primaryProp ? [cfg.primaryProp] : [];
+          rebuildSearchIndexForLayer(cfg);
+          if (typeof runSearch === 'function') runSearch();
+        });
+      }
+    }
+  }
+
+  function addLayer(cfg, opts){
+    opts = opts || {};
+    buildLayer(cfg);
+    createLayerCard(cfg);
+    if (cfg.removable) addSearchTargetOption(cfg);
+    if (opts.fitBounds && cfg.leafletLayer.getBounds && cfg.leafletLayer.getBounds().isValid()) {
+      map.fitBounds(cfg.leafletLayer.getBounds(), { maxZoom: 16, padding: [20,20] });
+    }
+  }
+
+  Object.values(layerConfig).sort((a,b)=>a.order-b.order).forEach(cfg => addLayer(cfg));
+
+  // Fit to combined bounds on load
+  const allBoundsGroup = L.featureGroup(Object.values(layerConfig).map(c => c.leafletLayer));
+  if (allBoundsGroup.getBounds().isValid()) {
+    map.fitBounds(allBoundsGroup.getBounds(), { padding: [20,20] });
+  }
+
+  // ---------------- GeoJSON upload ----------------
+  const uploadInput = document.getElementById('geojson-upload');
+  const uploadMsg = document.getElementById('upload-msg');
+  const PALETTE = ['#00ffff', '#ffff00']; // シアン / イエロー を交互に（塗りは乗算合成で表示）
+  const NAME_KEY_CANDIDATES = ['支所', '市町村', 'S_NAME', 'name', 'NAME', '名称', 'name_ja', 'title', 'ラベル', '地区名', 'P_NAME', 'address'];
+  let customLayerCount = 0;
+
+  function normalizeGeoJSON(obj){
+    if (!obj || typeof obj !== 'object') throw new Error('不正なファイル形式です');
+    if (obj.type === 'FeatureCollection' && Array.isArray(obj.features)) return obj;
+    if (obj.type === 'Feature') return { type: 'FeatureCollection', features: [obj] };
+    const geomTypes = ['Point','MultiPoint','LineString','MultiLineString','Polygon','MultiPolygon','GeometryCollection'];
+    if (obj.type && geomTypes.includes(obj.type)) {
+      return { type: 'FeatureCollection', features: [{ type: 'Feature', properties: {}, geometry: obj }] };
+    }
+    throw new Error('GeoJSON形式として認識できませんでした');
+  }
+
+  function detectPrimaryProp(features){
+    for (const key of NAME_KEY_CANDIDATES) {
+      if (features.some(f => f.properties && f.properties[key] != null && String(f.properties[key]).trim() !== '')) return key;
+    }
+    for (const f of features) {
+      if (f.properties) {
+        for (const k of Object.keys(f.properties)) {
+          if (typeof f.properties[k] === 'string' && f.properties[k].trim() !== '') return k;
+        }
+      }
+    }
+    return null;
+  }
+
+  function handleFiles(fileList){
+    const files = Array.from(fileList || []);
+    if (!files.length) return;
+    uploadMsg.className = '';
+    uploadMsg.textContent = '読み込み中...';
+    let done = 0;
+    const failed = [];
+
+    files.forEach(file => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const parsed = JSON.parse(reader.result);
+          const fc = normalizeGeoJSON(parsed);
+          if (!fc.features.length) throw new Error('フィーチャがありません');
+          customLayerCount++;
+          const id = 'custom_' + Date.now() + '_' + customLayerCount;
+          const color = PALETTE[(customLayerCount - 1) % PALETTE.length];
+          const primaryProp = detectPrimaryProp(fc.features);
+          const cfg = {
+            id: id,
+            label: file.name.replace(/\.(geojson|json)$/i, ''),
+            data: fc,
+            nameProps: primaryProp ? [primaryProp] : [],
+            primaryProp: primaryProp,
+            showAllProperties: true,
+            removable: true,
+            order: 100 + customLayerCount,
+            style: { fillColor: color, fillOpacity: 0.55, color: color, weight: 2, opacity: 0.9 },
+            defaultStyle: { fillColor: color, fillOpacity: 0.55, color: color, weight: 2, opacity: 0.9 },
+            leafletLayer: null,
+            visible: true
+          };
+          layerConfig[id] = cfg;
+          addLayer(cfg, { fitBounds: true });
+        } catch (e) {
+          failed.push(file.name + '（' + e.message + '）');
+        } finally {
+          done++;
+          if (done === files.length) {
+            uploadMsg.className = failed.length ? 'error' : '';
+            uploadMsg.textContent = failed.length
+              ? '一部のファイルを追加できませんでした： ' + failed.join(', ')
+              : files.length + '件のファイルを追加しました';
+          }
+        }
+      };
+      reader.onerror = () => {
+        failed.push(file.name + '（読み込みエラー）');
+        done++;
+        if (done === files.length) {
+          uploadMsg.className = 'error';
+          uploadMsg.textContent = '一部のファイルを追加できませんでした： ' + failed.join(', ');
+        }
+      };
+      reader.readAsText(file, 'utf-8');
+    });
+  }
+
+  uploadInput.addEventListener('change', (e) => {
+    handleFiles(e.target.files);
+    uploadInput.value = '';
+  });
+
+  // ---------------- Search ----------------
+  const searchInput = document.getElementById('search-input');
+  const searchTarget = searchTargetEl;
+  const resultsEl = document.getElementById('search-results');
+  const metaEl = document.getElementById('search-meta');
+  let highlightTimer = null;
+  let highlightedLayer = null;
+  let blinkInterval = null;
+
+  // Highlight pattern: thick dashed blue outline (distinct from any layer's own
+  // solid-color border), instead of a plain color swap.
+  const HIGHLIGHT_STYLE = { color: '#2563eb', weight: 5, dashArray: '9,6', fillColor: '#facc15', fillOpacity: 0.55, opacity: 1 };
+
+  function clearHighlight(){
+    if (blinkInterval) { clearInterval(blinkInterval); blinkInterval = null; }
+    if (highlightedLayer) {
+      const cfg = layerConfig[highlightedLayer._layerKeyRef];
+      if (cfg) highlightedLayer.setStyle(cfg.style);
+      highlightedLayer = null;
+    }
+  }
+
+  function runSearch(){
+    const q = searchInput.value.trim();
+    const target = searchTarget.value;
+    if (!q) {
+      resultsEl.classList.remove('show');
+      resultsEl.innerHTML = '';
+      metaEl.textContent = '';
+      return;
+    }
+    const qLower = q.toLowerCase();
+    const matches = searchIndex.filter(item => {
+      if (target !== 'all' && item.layerKey !== target) return false;
+      return item.name.toLowerCase().includes(qLower) || (item.subName && item.subName.toLowerCase().includes(qLower));
+    });
+
+    resultsEl.innerHTML = '';
+    const shown = matches.slice(0, 60);
+    shown.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'result-item';
+      const itemCfg = layerConfig[item.layerKey];
+      const tagLabel = itemCfg ? itemCfg.label : '';
+      const tagColor = itemCfg ? itemCfg.style.fillColor : '#9aa4b2';
+      div.innerHTML = `<span>${item.name}${item.subName ? ' <span style="color:#9aa4b2">('+item.subName+')</span>' : ''}</span><span class="tag" style="background:${tagColor}">${tagLabel}</span>`;
+      div.addEventListener('click', () => selectResult(item));
+      resultsEl.appendChild(div);
+    });
+    resultsEl.classList.toggle('show', shown.length > 0);
+    metaEl.textContent = matches.length === 0
+      ? '該当なし'
+      : (matches.length > shown.length ? `${matches.length}件中 ${shown.length}件を表示` : `${matches.length}件`);
+  }
+
+  function selectResult(item){
+    clearHighlight();
+    const cfg = layerConfig[item.layerKey];
+    if (!cfg) return; // layer may have been removed since the search index was built
+    if (!cfg.visible) {
+      cfg.visible = true;
+      cfg.leafletLayer.addTo(map);
+    }
+    // sync checkbox
+    const card = document.querySelector(`.layer-card[data-layer-id="${cfg.id}"]`);
+    if (card) card.querySelector('[data-role="visible"]').checked = true;
+
+    if (item.bounds && item.bounds.isValid()) {
+      map.fitBounds(item.bounds, { maxZoom: 16, padding: [40,40] });
+    }
+    item.sublayer._layerKeyRef = item.layerKey;
+    item.sublayer.openPopup();
+    highlightedLayer = item.sublayer;
+
+    // Blink a few times to draw the eye, then settle into a steady highlight,
+    // then revert to the layer's normal style after a while.
+    const normalStyle = cfg.style;
+    let blinkOn = true;
+    let blinkCount = 0;
+    const maxBlinks = 6; // 3 full on/off cycles
+    item.sublayer.setStyle(HIGHLIGHT_STYLE);
+    blinkInterval = setInterval(() => {
+      blinkOn = !blinkOn;
+      item.sublayer.setStyle(blinkOn ? HIGHLIGHT_STYLE : normalStyle);
+      blinkCount++;
+      if (blinkCount >= maxBlinks) {
+        clearInterval(blinkInterval);
+        blinkInterval = null;
+        item.sublayer.setStyle(HIGHLIGHT_STYLE); // settle into a steady highlight
+      }
+    }, 180);
+
+    if (highlightTimer) clearTimeout(highlightTimer);
+    highlightTimer = setTimeout(clearHighlight, 4000);
+  }
+
+  searchInput.addEventListener('input', runSearch);
+  searchTarget.addEventListener('change', runSearch);
+
+  // ---------------- Panel resize ----------------
+  const panelEl = document.getElementById('panel');
+  const resizerEl = document.getElementById('panel-resizer');
+  const PANEL_MIN_WIDTH = 260;
+  const PANEL_MAX_WIDTH = 640;
+  let resizing = false;
+  let rafPending = false;
+
+  resizerEl.addEventListener('mousedown', (e) => {
+    resizing = true;
+    resizerEl.classList.add('active');
+    document.body.style.userSelect = 'none';
+    document.body.style.cursor = 'col-resize';
+    e.preventDefault();
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!resizing) return;
+    const newWidth = Math.min(PANEL_MAX_WIDTH, Math.max(PANEL_MIN_WIDTH, e.clientX));
+    panelEl.style.width = newWidth + 'px';
+    panelEl.style.minWidth = newWidth + 'px';
+    if (!rafPending) {
+      rafPending = true;
+      requestAnimationFrame(() => {
+        map.invalidateSize();
+        rafPending = false;
+      });
+    }
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (!resizing) return;
+    resizing = false;
+    resizerEl.classList.remove('active');
+    document.body.style.userSelect = '';
+    document.body.style.cursor = '';
+    map.invalidateSize();
+  });
+
+  } // end initApp
+
+})();
+</script>
+</body>
+</html>
