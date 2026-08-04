@@ -494,6 +494,7 @@
           <button class="reset-btn" data-role="reset">初期値に戻す</button>
           ${cfg.removable ? '<button class="remove-btn" data-role="remove">このレイヤを削除</button>' : ''}
         </div>
+        ${cfg.removable ? '<div class="ctrl-row" data-role="deleteStatus" style="display:none;"></div>' : ''}
       </div>
     `;
     // 支所・地区（固定レイヤ）は常に最下部。新規レイヤはその直前に挿入する。
@@ -577,24 +578,50 @@
 
     if (cfg.removable) {
       const removeBtn = card.querySelector('[data-role="remove"]');
+      const deleteStatusEl = card.querySelector('[data-role="deleteStatus"]');
+      const removeBtnDefaultLabel = removeBtn.textContent;
+      let confirmTimer = null;
+
+      function showDeleteStatus(msg, isError){
+        if (!deleteStatusEl) return;
+        deleteStatusEl.textContent = msg;
+        deleteStatusEl.style.display = msg ? 'block' : 'none';
+        deleteStatusEl.style.color = isError ? '#dc2626' : '#6b7280';
+        deleteStatusEl.style.fontSize = '12px';
+      }
+
+      function resetRemoveBtn(){
+        removeBtn.disabled = false;
+        removeBtn.textContent = removeBtnDefaultLabel;
+        removeBtn.classList.remove('confirming');
+        if (confirmTimer) { clearTimeout(confirmTimer); confirmTimer = null; }
+      }
+
+      // Uses an inline two-click confirmation instead of window.confirm() —
+      // native dialogs can hang/block automated browser control and are an
+      // extra click-away-to-dismiss friction for normal use too.
       removeBtn.addEventListener('click', async () => {
         const isShared = !!cfg.githubPath;
-        if (isShared && !confirm(`「${cfg.label}」を削除します。この操作は共有データからも削除され、全員の画面から消えます。よろしいですか？`)) {
+        if (isShared && !removeBtn.classList.contains('confirming')) {
+          removeBtn.classList.add('confirming');
+          removeBtn.textContent = '本当に削除しますか？（もう一度クリック）';
+          showDeleteStatus('この操作は共有データからも削除され、全員の画面から消えます。', false);
+          confirmTimer = setTimeout(resetRemoveBtn, 5000);
           return;
         }
+        if (confirmTimer) { clearTimeout(confirmTimer); confirmTimer = null; }
         removeBtn.disabled = true;
-        const originalLabel = removeBtn.textContent;
         removeBtn.textContent = '削除中...';
+        showDeleteStatus('', false);
         const result = await deleteFileFromGitHub(cfg);
         if (!result.ok) {
-          removeBtn.disabled = false;
-          removeBtn.textContent = originalLabel;
+          resetRemoveBtn();
           if (result.reason === 'no-token') {
-            alert('共有データを削除するにはアップロード用トークンの設定が必要です。左側の「データをアップロードして共有する」からトークンを設定してください。');
+            showDeleteStatus('共有データを削除するにはアップロード用トークンの設定が必要です。左側の「データをアップロードして共有する」からトークンを設定してください。', true);
           } else if (result.reason === 'invalid-token') {
-            alert('トークンが無効です（期限切れまたは失効）。新しいトークンを発行して保存し直してから、もう一度削除してください。');
+            showDeleteStatus('トークンが無効です（期限切れまたは失効）。新しいトークンを発行して保存し直してから、もう一度削除してください。', true);
           } else {
-            alert('共有データの削除に失敗しました。もう一度お試しください。');
+            showDeleteStatus('共有データの削除に失敗しました。もう一度お試しください。', true);
           }
           return;
         }
