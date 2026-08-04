@@ -192,16 +192,16 @@
       <div class="section">
         <div class="section-title">GitHub連携（アップロードデータの保管）</div>
         <div id="github-settings">
-          <input type="text" id="gh-repo" placeholder="リポジトリ（例：owner/repo）">
+          <input type="text" id="gh-repo" placeholder="GitHubリポジトリ（例：owner/repo）">
           <input type="password" id="gh-token" placeholder="Personal Access Token">
-          <input type="text" id="gh-path" placeholder="保存先フォルダ（例：data/uploads）">
+          <input type="text" id="gh-path" placeholder="リポジトリ内の保存先パス（例：data/uploads）">
           <div class="gh-btn-row">
             <button class="upload-btn" id="gh-save-btn" type="button">接続を保存</button>
             <button class="reset-btn" id="gh-refresh-btn" type="button">再読込</button>
           </div>
         </div>
         <div id="gh-status"></div>
-        <div id="gh-note">トークンはこのブラウザ内にのみ保存され、GitHub以外には送信されません。</div>
+        <div id="gh-note">アップロードしたデータの保存先はGitHubのみです（Coworkには保存されません）。トークンはこのブラウザ内にのみ保存され、GitHub以外には送信されません。</div>
       </div>
 
       <div class="section">
