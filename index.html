@@ -577,7 +577,27 @@
 
     if (cfg.removable) {
       const removeBtn = card.querySelector('[data-role="remove"]');
-      removeBtn.addEventListener('click', () => {
+      removeBtn.addEventListener('click', async () => {
+        const isShared = !!cfg.githubPath;
+        if (isShared && !confirm(`「${cfg.label}」を削除します。この操作は共有データからも削除され、全員の画面から消えます。よろしいですか？`)) {
+          return;
+        }
+        removeBtn.disabled = true;
+        const originalLabel = removeBtn.textContent;
+        removeBtn.textContent = '削除中...';
+        const result = await deleteFileFromGitHub(cfg);
+        if (!result.ok) {
+          removeBtn.disabled = false;
+          removeBtn.textContent = originalLabel;
+          if (result.reason === 'no-token') {
+            alert('共有データを削除するにはアップロード用トークンの設定が必要です。左側の「データをアップロードして共有する」からトークンを設定してください。');
+          } else if (result.reason === 'invalid-token') {
+            alert('トークンが無効です（期限切れまたは失効）。新しいトークンを発行して保存し直してから、もう一度削除してください。');
+          } else {
+            alert('共有データの削除に失敗しました。もう一度お試しください。');
+          }
+          return;
+        }
         map.removeLayer(cfg.leafletLayer);
         for (let i = searchIndex.length - 1; i >= 0; i--) {
           if (searchIndex[i].layerKey === cfg.id) searchIndex.splice(i, 1);
@@ -863,6 +883,41 @@
     } catch (e) {
       ghViewStatusEl.className = 'error';
       ghViewStatusEl.textContent = '共有データの取得に失敗しました: ' + e.message;
+    }
+  }
+
+  // Deletes the layer's shared file on GitHub so removal actually persists —
+  // otherwise it would just reappear for everyone (including the current user)
+  // the next time loadSharedDataFromGitHub() runs.
+  async function deleteFileFromGitHub(cfg){
+    if (!cfg.githubPath) return { ok: true }; // never shared — nothing remote to remove
+    if (!githubToken) return { ok: false, reason: 'no-token' };
+    try {
+      let sha = cfg.githubSha || null;
+      if (!sha) {
+        const getRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${cfg.githubPath}`, { headers: ghAuthHeaders() });
+        if (getRes.status === 404) { loadedGitHubPaths.delete(cfg.githubPath); return { ok: true }; }
+        if (getRes.ok) { const info = await getRes.json(); sha = info.sha; }
+      }
+      if (!sha) return { ok: true };
+      const delRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${cfg.githubPath}`, {
+        method: 'DELETE',
+        headers: Object.assign({ 'Content-Type': 'application/json' }, ghAuthHeaders()),
+        body: JSON.stringify({ message: `削除: ${cfg.sourceFileName || cfg.githubPath}`, sha: sha })
+      });
+      if (delRes.status === 401 || delRes.status === 403) {
+        githubToken = null;
+        try { localStorage.removeItem(GH_TOKEN_STORAGE_KEY); } catch (e) {}
+        ghTokenInput.value = '';
+        refreshGhFormVisibility();
+        return { ok: false, reason: 'invalid-token' };
+      }
+      if (delRes.status === 404) { loadedGitHubPaths.delete(cfg.githubPath); return { ok: true }; }
+      if (!delRes.ok) return { ok: false, reason: 'error', status: delRes.status };
+      loadedGitHubPaths.delete(cfg.githubPath);
+      return { ok: true };
+    } catch (e) {
+      return { ok: false, reason: 'exception', message: e.message };
     }
   }
 
