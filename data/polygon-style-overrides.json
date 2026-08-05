@@ -130,5 +130,9 @@
   "data/uploads/ざっくり範囲.geojson_24": {
     "fillColor": "#ffffff",
     "color": "#ffffff"
+  },
+  "data/uploads/ざっくり範囲.geojson_20": {
+    "fillColor": "#ff0040",
+    "color": "#ff0010"
   }
 }
