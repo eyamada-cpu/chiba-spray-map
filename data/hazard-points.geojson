@@ -1,4 +1,20 @@
 {
   "type": "FeatureCollection",
-  "features": []
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1785898106665_c9iuu9",
+        "emoji": "🐦",
+        "details": "テスト"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.49626469612124,
+          35.62205284684041
+        ]
+      }
+    }
+  ]
 }
