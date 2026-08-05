@@ -1,20 +1,4 @@
 {
   "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "pin_1785896790165_pq4krm",
-        "emoji": "🚗",
-        "details": ""
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.49615740776065,
-          35.619514931473006
-        ]
-      }
-    }
-  ]
+  "features": []
 }
