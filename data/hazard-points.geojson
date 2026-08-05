@@ -45,6 +45,21 @@
           35.61294737455588
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1785898245076_lcegug",
+        "emoji": "🚩",
+        "details": "テスト"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.497841835022,
+          35.62564590885837
+        ]
+      }
     }
   ]
 }
