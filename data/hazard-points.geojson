@@ -60,6 +60,21 @@
           35.62564590885837
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1785898387948_t9k9ni",
+        "emoji": "😎",
+        "details": "テスト"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.42432785034183,
+          35.64502124113393
+        ]
+      }
     }
   ]
 }
