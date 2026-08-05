@@ -1,4 +1,20 @@
 {
   "type": "FeatureCollection",
-  "features": []
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1785897664934_ijcttv",
+        "emoji": "⚠️",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.4980564117432,
+          35.62142491651643
+        ]
+      }
+    }
+  ]
 }
