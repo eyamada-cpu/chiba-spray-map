@@ -66,5 +66,9 @@
   "data/uploads/ざっくり範囲.geojson_43": {
     "fillColor": "#2e35ff",
     "color": "#080bff"
+  },
+  "data/uploads/ざっくり範囲.geojson_1": {
+    "fillColor": "#ff0095",
+    "color": "#ff0057"
   }
 }
