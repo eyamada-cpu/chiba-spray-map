@@ -90,5 +90,9 @@
   "data/uploads/ざっくり範囲.geojson_9": {
     "fillColor": "#3cff2e",
     "color": "#0eff08"
+  },
+  "data/uploads/ざっくり範囲.geojson_21": {
+    "fillColor": "#dd9eff",
+    "color": "#c062ff"
   }
 }
