@@ -1,21 +1,4 @@
 {
   "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "pin_1785892548959_r6lhtl",
-        "category": "danger",
-        "title": "",
-        "details": ""
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.4940223693848,
-          35.61882593023864
-        ]
-      }
-    }
-  ]
+  "features": []
 }
