@@ -30,6 +30,21 @@
           35.61953237446518
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1785898213873_uu1hyp",
+        "emoji": "🧑",
+        "details": "テスト"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.52141308784488,
+          35.61294737455588
+        ]
+      }
     }
   ]
 }
