@@ -90,21 +90,6 @@
           35.89296177949109
         ]
       }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "pin_1785975030397_bcjuix",
-        "emoji": "⚠️",
-        "details": ""
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.52131652832034,
-          35.61279123945482
-        ]
-      }
     }
   ]
 }
