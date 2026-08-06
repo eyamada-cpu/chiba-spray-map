@@ -19,21 +19,6 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "pin_1785898135926_xmr4hu",
-        "emoji": "⚠️",
-        "details": "テスト"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.5021440982819,
-          35.61953237446518
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "id": "pin_1785898245076_lcegug",
         "emoji": "🚩",
         "details": "テスト"
