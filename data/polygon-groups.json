@@ -9,5 +9,31 @@
       "branch_48"
     ],
     "color": "#ff47f9"
+  },
+  {
+    "id": "group_1785992996699",
+    "title": "北総支所",
+    "members": [
+      "branch_35",
+      "branch_38",
+      "branch_16",
+      "branch_17",
+      "branch_26",
+      "branch_10",
+      "branch_8",
+      "branch_32",
+      "branch_13",
+      "branch_22",
+      "branch_29",
+      "branch_37",
+      "branch_36",
+      "branch_45",
+      "branch_46",
+      "branch_27",
+      "branch_14",
+      "branch_25",
+      "branch_9"
+    ],
+    "color": "#059669"
   }
 ]
