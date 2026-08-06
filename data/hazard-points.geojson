@@ -105,6 +105,21 @@
           35.61522791789157
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1785975052000_tjmt4u",
+        "emoji": "⚠️",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.53119516222625,
+          35.61139152056637
+        ]
+      }
     }
   ]
 }
