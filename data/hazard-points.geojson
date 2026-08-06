@@ -4,21 +4,6 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "pin_1785898387948_t9k9ni",
-        "emoji": "😎",
-        "details": "テスト"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.5066823959351,
-          35.626083740349955
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "id": "pin_1785911747083_s6f593",
         "emoji": "❗",
         "details": "農地ナビの地番が本来の順番ではなく反転している箇所。"
