@@ -206,5 +206,9 @@
   "branch_27": {
     "fillColor": "#fff700",
     "color": "#ffef00"
+  },
+  "branch_22": {
+    "fillColor": "#ffea00",
+    "color": "#ffd700"
   }
 }
