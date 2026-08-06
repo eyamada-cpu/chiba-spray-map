@@ -45,5 +45,18 @@
       "branch_40"
     ],
     "color": "#2bff00"
+  },
+  {
+    "id": "group_1785993195354",
+    "title": "山武支所",
+    "members": [
+      "branch_44",
+      "branch_18",
+      "branch_50",
+      "branch_42",
+      "branch_52",
+      "branch_51"
+    ],
+    "color": "#2563eb"
   }
 ]
