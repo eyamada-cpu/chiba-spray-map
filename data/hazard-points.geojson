@@ -135,6 +135,21 @@
           35.75131871378037
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786085901783_653skh",
+        "emoji": "🚗",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.1132168776107,
+          35.74394506253652
+        ]
+      }
     }
   ]
 }
