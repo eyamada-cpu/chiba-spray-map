@@ -15,6 +15,21 @@
           35.89296177949109
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786077165643_i3nafk",
+        "emoji": "🚫",
+        "details": "【危険】タバコ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.35375716988744,
+          35.45844583432732
+        ]
+      }
     }
   ]
 }
