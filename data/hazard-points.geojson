@@ -210,6 +210,21 @@
           35.74295964957215
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786086069532_tp9ayz",
+        "emoji": "🚫",
+        "details": "【危険】蛍生息地"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.10925412178042,
+          35.75202495490707
+        ]
+      }
     }
   ]
 }
