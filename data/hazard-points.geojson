@@ -300,6 +300,21 @@
           35.748881462650324
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786086214617_r8wwbg",
+        "emoji": "🚗",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.14297992705266,
+          35.747562127761526
+        ]
+      }
     }
   ]
 }
