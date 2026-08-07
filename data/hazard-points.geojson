@@ -90,6 +90,21 @@
           35.75006385295921
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786085838266_0nbpyo",
+        "emoji": "🚗",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.08281327754423,
+          35.75076216297287
+        ]
+      }
     }
   ]
 }
