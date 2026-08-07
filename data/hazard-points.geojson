@@ -180,6 +180,21 @@
           35.743556255649274
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786085936809_tlrynp",
+        "emoji": "🚗",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.1109439134598,
+          35.743229643359484
+        ]
+      }
     }
   ]
 }
