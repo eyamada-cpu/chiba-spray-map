@@ -285,6 +285,21 @@
           35.77545115789245
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786086192277_fzeglb",
+        "emoji": "🚗",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.14201998710635,
+          35.748881462650324
+        ]
+      }
     }
   ]
 }
