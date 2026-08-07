@@ -120,6 +120,21 @@
           35.74968566549828
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786085864245_m2t4gj",
+        "emoji": "🚗",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.08112619350496,
+          35.75131871378037
+        ]
+      }
     }
   ]
 }
