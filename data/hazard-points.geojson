@@ -30,6 +30,21 @@
           35.45844583432732
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786077203954_4itdoi",
+        "emoji": "🚫",
+        "details": "【危険】ネギ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.34736970732152,
+          35.455777738248806
+        ]
+      }
     }
   ]
 }
