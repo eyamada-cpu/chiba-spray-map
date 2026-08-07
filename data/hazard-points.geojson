@@ -45,6 +45,21 @@
           35.455777738248806
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786085757407_ioduqe",
+        "emoji": "🚗",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.1000224252245,
+          35.74618129247007
+        ]
+      }
     }
   ]
 }
