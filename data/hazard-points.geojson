@@ -240,6 +240,21 @@
           35.751258603225835
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786086133241_ch9oq2",
+        "emoji": "🚗",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.1270993032985,
+          35.770023306142306
+        ]
+      }
     }
   ]
 }
