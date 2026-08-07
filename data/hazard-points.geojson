@@ -165,6 +165,21 @@
           35.74442719058122
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786085925006_z3uelr",
+        "emoji": "🚗",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.1119685173035,
+          35.743556255649274
+        ]
+      }
     }
   ]
 }
