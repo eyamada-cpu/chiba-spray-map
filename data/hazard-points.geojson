@@ -60,6 +60,21 @@
           35.74618129247007
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786085780393_dc28yw",
+        "emoji": "🚗",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.09870826798218,
+          35.74772446610581
+        ]
+      }
     }
   ]
 }
