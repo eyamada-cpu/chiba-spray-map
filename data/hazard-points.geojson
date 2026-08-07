@@ -195,6 +195,21 @@
           35.743229643359484
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786085947075_t5itqp",
+        "emoji": "🚗",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.1101875305176,
+          35.74295964957215
+        ]
+      }
     }
   ]
 }
