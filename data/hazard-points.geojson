@@ -120,21 +120,6 @@
           35.74968566549828
         ]
       }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "pin_1786085854514_p70oke",
-        "emoji": "⚠️",
-        "details": ""
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.0811171716652,
-          35.751311390768706
-        ]
-      }
     }
   ]
 }
