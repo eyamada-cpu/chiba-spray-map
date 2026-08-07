@@ -270,6 +270,21 @@
           35.77275672136158
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786086151588_9bbbni",
+        "emoji": "🚗",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.12902625721242,
+          35.77569859945339
+        ]
+      }
     }
   ]
 }
