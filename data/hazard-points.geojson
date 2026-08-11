@@ -315,6 +315,21 @@
           35.747562127761526
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786414376797_8dcli3",
+        "emoji": "🚫",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.10655493501147,
+          35.74694630502667
+        ]
+      }
     }
   ]
 }
