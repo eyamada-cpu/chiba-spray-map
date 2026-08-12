@@ -555,6 +555,21 @@
           35.77637547413875
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786493397931_x5pyan",
+        "emoji": "🚫",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.1027786089826,
+          35.7770489229063
+        ]
+      }
     }
   ]
 }
