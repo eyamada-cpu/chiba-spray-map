@@ -600,6 +600,21 @@
           35.77789164382087
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786493441689_ch5hvu",
+        "emoji": "🚫",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.09430710142695,
+          35.78217920186294
+        ]
+      }
     }
   ]
 }
