@@ -450,6 +450,21 @@
           35.77398825908461
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786493293237_v2s0mr",
+        "emoji": "🚫",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.12017271608298,
+          35.77548099780761
+        ]
+      }
     }
   ]
 }
