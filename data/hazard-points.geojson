@@ -630,6 +630,21 @@
           35.773926350795605
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786495288120_e81kjs",
+        "emoji": "📍",
+        "details": "地番なし"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.49677099746148,
+          35.935251933531404
+        ]
+      }
     }
   ]
 }
