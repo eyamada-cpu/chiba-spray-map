@@ -540,6 +540,21 @@
           35.77754997224599
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786493389514_vshuuc",
+        "emoji": "🚫",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.10521526015285,
+          35.77637547413875
+        ]
+      }
     }
   ]
 }
