@@ -360,6 +360,21 @@
           35.746676122694176
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786493226711_uss7z3",
+        "emoji": "🚫",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.08881816373304,
+          35.747575096769694
+        ]
+      }
     }
   ]
 }
