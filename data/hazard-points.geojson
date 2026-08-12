@@ -330,6 +330,21 @@
           35.74694630502667
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786493211766_2di2sl",
+        "emoji": "🚫",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.09919640371035,
+          35.74828879523911
+        ]
+      }
     }
   ]
 }
