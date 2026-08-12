@@ -615,6 +615,21 @@
           35.78217920186294
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786493459136_5ov3zo",
+        "emoji": "🚫",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.0934771566293,
+          35.773926350795605
+        ]
+      }
     }
   ]
 }
