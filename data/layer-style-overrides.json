@@ -1,1 +1,9 @@
-{}
+{
+  "data/uploads/八日市場【海匝】.geojson": {
+    "fillColor": "#fbff00",
+    "fillOpacity": 0.55,
+    "color": "#00ffff",
+    "weight": 2,
+    "opacity": 0.9
+  }
+}
