@@ -405,6 +405,21 @@
           35.771616945772124
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786493269796_3cldoz",
+        "emoji": "🚫",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.12241013234896,
+          35.77521713999151
+        ]
+      }
     }
   ]
 }
