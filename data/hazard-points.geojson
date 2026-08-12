@@ -420,6 +420,21 @@
           35.77521713999151
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786493278319_sy8ink",
+        "emoji": "🚫",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.12448515549886,
+          35.77220235430297
+        ]
+      }
     }
   ]
 }
