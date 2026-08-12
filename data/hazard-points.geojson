@@ -435,6 +435,21 @@
           35.77220235430297
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1786493286229_uqilr3",
+        "emoji": "🚫",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.12056967703342,
+          35.77398825908461
+        ]
+      }
     }
   ]
 }
