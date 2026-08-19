@@ -154,21 +154,6 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "pin_1786085936809_tlrynp",
-        "emoji": "🚗",
-        "details": ""
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.11127114295962,
-          35.743303441801864
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "id": "pin_1786085947075_t5itqp",
         "emoji": "🚗",
         "details": ""
