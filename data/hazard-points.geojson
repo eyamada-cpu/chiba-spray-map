@@ -424,21 +424,6 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "pin_1786493286229_uqilr3",
-        "emoji": "🚫",
-        "details": ""
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.12072997089695,
-          35.77402092618832
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "id": "pin_1786495288120_e81kjs",
         "emoji": "📍",
         "details": "地番なし"
