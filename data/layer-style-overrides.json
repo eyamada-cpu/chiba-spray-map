@@ -47,5 +47,12 @@
     "color": "#17fd4c",
     "weight": 2,
     "opacity": 0.9
+  },
+  "data/uploads/高田【多古】.geojson": {
+    "fillColor": "#389fff",
+    "fillOpacity": 0.55,
+    "color": "#0c63ff",
+    "weight": 2,
+    "opacity": 0.9
   }
 }
