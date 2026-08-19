@@ -40,5 +40,12 @@
     "color": "#ff6108",
     "weight": 2,
     "opacity": 0.9
+  },
+  "data/uploads/谷津・宮【多古】.geojson": {
+    "fillColor": "#4dfe8b",
+    "fillOpacity": 0.55,
+    "color": "#17fd4c",
+    "weight": 2,
+    "opacity": 0.9
   }
 }
