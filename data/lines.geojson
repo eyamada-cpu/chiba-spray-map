@@ -1,0 +1,31 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "line_1787105509497_yajx6",
+        "color": "#e11d48",
+        "weight": 8,
+        "opacity": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            140.12895940217157,
+            35.775526945533215
+          ],
+          [
+            140.12793869751738,
+            35.77283649054052
+          ],
+          [
+            140.1268924752468,
+            35.76956643038472
+          ]
+        ]
+      }
+    }
+  ]
+}
