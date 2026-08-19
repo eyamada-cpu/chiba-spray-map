@@ -33,5 +33,12 @@
     "color": "#d131ff",
     "weight": 2,
     "opacity": 0.9
+  },
+  "data/uploads/借当・和田【多古】.geojson": {
+    "fillColor": "#febf76",
+    "fillOpacity": 0.55,
+    "color": "#fd8f37",
+    "weight": 2,
+    "opacity": 0.9
   }
 }
