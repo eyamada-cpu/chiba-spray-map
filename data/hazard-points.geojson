@@ -469,21 +469,6 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "pin_1786493300421_n0zqu4",
-        "emoji": "🚫",
-        "details": ""
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.1207682473215,
-          35.77676410811921
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "id": "pin_1786493307289_cxyb66",
         "emoji": "🚫",
         "details": ""
