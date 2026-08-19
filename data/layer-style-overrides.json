@@ -26,5 +26,12 @@
     "color": "#00ffff",
     "weight": 1,
     "opacity": 1
+  },
+  "data/uploads/南並木【多古】.geojson": {
+    "fillColor": "#e770ff",
+    "fillOpacity": 0.55,
+    "color": "#d131ff",
+    "weight": 2,
+    "opacity": 0.9
   }
 }
