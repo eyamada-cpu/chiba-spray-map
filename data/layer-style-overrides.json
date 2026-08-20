@@ -68,5 +68,12 @@
     "color": "#00ffff",
     "weight": 2,
     "opacity": 0.9
+  },
+  "data/uploads/柏市.geojson": {
+    "fillColor": "#ffa200",
+    "fillOpacity": 0.55,
+    "color": "#ff6700",
+    "weight": 2,
+    "opacity": 0.9
   }
 }
