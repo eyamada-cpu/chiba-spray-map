@@ -240,6 +240,21 @@
           35.935251933531404
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1787204483274_gmhkt6",
+        "emoji": "🚫",
+        "details": "無農薬栽培圃場"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.32672730833067,
+          35.53750862838328
+        ]
+      }
     }
   ]
 }
