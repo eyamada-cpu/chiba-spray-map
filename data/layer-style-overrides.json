@@ -75,5 +75,12 @@
     "color": "#00ffff",
     "weight": 2,
     "opacity": 0.9
+  },
+  "data/uploads/大網白里.geojson": {
+    "fillColor": "#00aaff",
+    "fillOpacity": 0.55,
+    "color": "#0071ff",
+    "weight": 2,
+    "opacity": 0.9
   }
 }
