@@ -255,6 +255,21 @@
           35.53750862838328
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1787557555127_f1kww9",
+        "emoji": "⭐",
+        "details": "【S】"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.14163527809617,
+          35.759384720578325
+        ]
+      }
     }
   ]
 }
