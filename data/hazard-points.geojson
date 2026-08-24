@@ -259,21 +259,6 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "pin_1787557555127_f1kww9",
-        "emoji": "⭐",
-        "details": "【S】"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.14382797999224,
-          35.76053509918806
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "id": "pin_1787558168484_zone57",
         "emoji": "⭐",
         "details": "事情により、この辺から開始"
