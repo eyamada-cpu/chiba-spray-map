@@ -96,5 +96,12 @@
     "color": "#00ffff",
     "weight": 2,
     "opacity": 0.9
+  },
+  "data/uploads/新木野.geojson": {
+    "fillColor": "#66ff00",
+    "fillOpacity": 0.55,
+    "color": "#29ff00",
+    "weight": 2,
+    "opacity": 0.9
   }
 }
