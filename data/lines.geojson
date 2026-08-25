@@ -3610,6 +3610,28 @@
           ]
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "line_1787623008527_jzyy9",
+        "color": "#ffffff",
+        "weight": 5,
+        "opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            139.90891456604007,
+            35.006586089210636
+          ],
+          [
+            139.90571737289432,
+            34.99859056541312
+          ]
+        ]
+      }
     }
   ]
 }
