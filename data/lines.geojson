@@ -3364,6 +3364,28 @@
           ]
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "line_1787619144640_vmspr",
+        "color": "#ffffff",
+        "weight": 5,
+        "opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            140.4940974712372,
+            35.595421469576216
+          ],
+          [
+            140.50023436546329,
+            35.59122543934328
+          ]
+        ]
+      }
     }
   ]
 }
