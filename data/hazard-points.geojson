@@ -315,6 +315,21 @@
           35.58425141124423
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1787618198590_gqctqb",
+        "emoji": "❓",
+        "details": "緑海と蓮沼"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.479006873634,
+          35.59457576860951
+        ]
+      }
     }
   ]
 }
