@@ -5174,6 +5174,28 @@
           ]
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "line_1787641616889_wc2mg",
+        "color": "#ffffff",
+        "weight": 5,
+        "opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            139.9791072292463,
+            35.02707200474733
+          ],
+          [
+            139.98004550058366,
+            35.015721604406565
+          ]
+        ]
+      }
     }
   ]
 }
