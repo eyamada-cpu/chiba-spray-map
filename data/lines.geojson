@@ -3864,6 +3864,28 @@
           ]
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "line_1787625895464_bznqk",
+        "color": "#ffffff",
+        "weight": 5,
+        "opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            139.88314997236955,
+            34.96134240662252
+          ],
+          [
+            139.89283026053553,
+            34.96270990982821
+          ]
+        ]
+      }
     }
   ]
 }
