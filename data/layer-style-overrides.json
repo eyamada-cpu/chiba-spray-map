@@ -89,5 +89,12 @@
     "color": "#ff62e6",
     "weight": 2,
     "opacity": 0.9
+  },
+  "data/uploads/白子.geojson": {
+    "fillColor": "#00ffff",
+    "fillOpacity": 0.55,
+    "color": "#00ffff",
+    "weight": 2,
+    "opacity": 0.9
   }
 }
