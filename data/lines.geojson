@@ -5356,6 +5356,28 @@
           ]
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "line_1787641720053_oal6i",
+        "color": "#ffffff",
+        "weight": 5,
+        "opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            139.8483988144798,
+            35.032269941070126
+          ],
+          [
+            139.85900849806382,
+            35.03262459313613
+          ]
+        ]
+      }
     }
   ]
 }
