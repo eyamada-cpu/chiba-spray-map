@@ -435,6 +435,21 @@
           35.89984043118366
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1787707645922_9vglhy",
+        "emoji": "🛑",
+        "details": "柏と久寺家の境目"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.01885608107887,
+          35.88823979570895
+        ]
+      }
     }
   ]
 }
