@@ -450,6 +450,21 @@
           35.88823979570895
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1787710796088_knt9fq",
+        "emoji": "🛑",
+        "details": "柏と新木野の境目"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.08413791656497,
+          35.85430539737856
+        ]
+      }
     }
   ]
 }
