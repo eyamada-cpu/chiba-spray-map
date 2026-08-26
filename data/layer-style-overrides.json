@@ -131,5 +131,12 @@
     "color": "#ffff00",
     "weight": 2,
     "opacity": 0.9
+  },
+  "data/uploads/佐原.geojson": {
+    "fillColor": "#ffff00",
+    "fillOpacity": 0.55,
+    "color": "#ffff00",
+    "weight": 2,
+    "opacity": 0.9
   }
 }
