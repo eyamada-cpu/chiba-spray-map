@@ -5572,8 +5572,8 @@
       "properties": {
         "id": "line_1787642032674_y7kf5",
         "color": "#e2861d",
-        "weight": 9,
-        "opacity": 0.9
+        "weight": 7,
+        "opacity": 1
       },
       "geometry": {
         "type": "LineString",
