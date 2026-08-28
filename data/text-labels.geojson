@@ -34,23 +34,6 @@
           35.4911711815623
         ]
       }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "text_1787896306292_yimuz",
-        "text": "",
-        "bgColor": "#facc15",
-        "textColor": "#1f2937",
-        "fontSize": 13
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.48836522999446,
-          35.62688414411688
-        ]
-      }
     }
   ]
 }
