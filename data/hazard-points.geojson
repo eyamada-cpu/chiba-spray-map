@@ -525,6 +525,21 @@
           35.766369384552654
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1787903660961_4jwck0",
+        "emoji": "🛬",
+        "details": "木更津飛行場"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.9102525480275,
+          35.39873343293699
+        ]
+      }
     }
   ]
 }
