@@ -510,6 +510,21 @@
           35.73829129792706
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1787903516961_tyis8t",
+        "emoji": "🛬",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3861001167676,
+          35.766369384552654
+        ]
+      }
     }
   ]
 }
