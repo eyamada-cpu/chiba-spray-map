@@ -25,7 +25,7 @@
         "text": "【白子】圃場が飛び飛び",
         "bgColor": "#ffffff",
         "textColor": "#1f2937",
-        "fontSize": 24
+        "fontSize": 20
       },
       "geometry": {
         "type": "Point",
