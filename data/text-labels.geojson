@@ -1,21 +1,4 @@
 {
   "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "text_1787894060070_9ijyo",
-        "text": "テキスト",
-        "bgColor": "#facc15",
-        "textColor": "#1f2937"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.32167613000783,
-          35.53991992749408
-        ]
-      }
-    }
-  ]
+  "features": []
 }
