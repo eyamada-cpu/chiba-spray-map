@@ -525,21 +525,6 @@
           35.766369384552654
         ]
       }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "pin_1787903648754_uvghfr",
-        "emoji": "🛬",
-        "details": ""
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.910108198591,
-          35.39867461362786
-        ]
-      }
     }
   ]
 }
