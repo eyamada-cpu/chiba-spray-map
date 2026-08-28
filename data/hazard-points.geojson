@@ -480,6 +480,21 @@
           35.84919324335515
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1787879734881_ugvuz7",
+        "emoji": "🛑",
+        "details": "多古と八日市場の境目"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.480991217379,
+          35.718346992983975
+        ]
+      }
     }
   ]
 }
