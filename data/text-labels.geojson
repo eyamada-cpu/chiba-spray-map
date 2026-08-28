@@ -56,7 +56,7 @@
       "type": "Feature",
       "properties": {
         "id": "text_1787900248972_re849",
-        "text": "テキスト",
+        "text": "\n農地ナビの地番が逆転している箇所があるため注意",
         "bgColor": "#facc15",
         "textColor": "#1f2937",
         "fontSize": 13
