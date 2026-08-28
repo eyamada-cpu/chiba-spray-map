@@ -8,7 +8,7 @@
         "text": "グループで色分けしてあります",
         "bgColor": "#ffffff",
         "textColor": "#1f2937",
-        "fontSize": 8
+        "fontSize": 12
       },
       "geometry": {
         "type": "Point",
