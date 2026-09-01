@@ -68,6 +68,23 @@
           35.899176589869796
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "text_1788239754394_3n5lx",
+        "text": "テキスト",
+        "bgColor": "#facc15",
+        "textColor": "#1f2937",
+        "fontSize": 13
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.16096513901397,
+          35.549202874032154
+        ]
+      }
     }
   ]
 }
