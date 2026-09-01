@@ -424,21 +424,6 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "pin_1787707632656_6ux8rq",
-        "emoji": "🛑",
-        "details": "柏と久寺家の境目"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.0297805442129,
-          35.89984043118366
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "id": "pin_1787707645922_9vglhy",
         "emoji": "🛑",
         "details": "柏と久寺家の境目"
