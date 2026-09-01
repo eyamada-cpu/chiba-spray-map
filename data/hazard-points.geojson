@@ -555,6 +555,21 @@
           35.90644754725978
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1788230959647_6bvjgb",
+        "emoji": "🛑",
+        "details": "柏と柏での境目"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.02968950702012,
+          35.899840541952074
+        ]
+      }
     }
   ]
 }
