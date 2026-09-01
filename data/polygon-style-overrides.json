@@ -2768,8 +2768,11 @@
     "opacity": 0.9
   },
   "data/uploads/重要施設半径一キロ.geojson_10": {
-    "fillColor": "#fffc99",
-    "color": "#fff95c"
+    "fillColor": "#eeff00",
+    "color": "#eeff00",
+    "fillOpacity": 0.55,
+    "weight": 2,
+    "opacity": 0.9
   },
   "data/uploads/重要施設半径一キロ.geojson_8": {
     "fillColor": "#f7ff8a",
