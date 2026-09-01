@@ -169,7 +169,7 @@
   },
   "district": {
     "fillColor": "#ffffff",
-    "fillOpacity": 0.28,
+    "fillOpacity": 0,
     "color": "#ffffff",
     "weight": 1,
     "opacity": 1
