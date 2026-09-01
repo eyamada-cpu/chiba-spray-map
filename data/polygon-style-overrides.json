@@ -2833,5 +2833,9 @@
   "data/uploads/重要施設.geojson_11": {
     "fillColor": "#4dfeba",
     "color": "#17fd88"
+  },
+  "data/uploads/重要施設半径一キロ.geojson_10": {
+    "fillColor": "#ffffff",
+    "color": "#ffffff"
   }
 }
