@@ -147,7 +147,7 @@
     "opacity": 0.9
   },
   "data/uploads/重要施設半径一キロ.geojson": {
-    "fillColor": "#ff007b",
+    "fillColor": "#eeff00",
     "fillOpacity": 0.55,
     "color": "#ff003b",
     "weight": 2,
