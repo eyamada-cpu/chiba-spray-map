@@ -2829,5 +2829,9 @@
   "data/uploads/大網白里.geojson_454": {
     "fillColor": "#ff0000",
     "color": "#ff0000"
+  },
+  "data/uploads/重要施設.geojson_11": {
+    "fillColor": "#4dfeba",
+    "color": "#17fd88"
   }
 }
