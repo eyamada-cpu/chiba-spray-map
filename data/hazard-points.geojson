@@ -555,6 +555,21 @@
           34.98752511881941
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1788227391742_f7u5gr",
+        "emoji": "🛬",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.90968704223636,
+          35.398489314361356
+        ]
+      }
     }
   ]
 }
