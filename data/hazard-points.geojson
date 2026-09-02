@@ -645,6 +645,21 @@
           35.65189991398109
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1788330891534_umuo1u",
+        "emoji": "🪖",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.07171834435516,
+          35.71143831143775
+        ]
+      }
     }
   ]
 }
