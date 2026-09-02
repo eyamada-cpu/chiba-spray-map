@@ -514,21 +514,6 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "pin_1788227391742_f7u5gr",
-        "emoji": "🛬",
-        "details": ""
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.90968704223636,
-          35.398489314361356
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "id": "pin_1788230755275_7ivq5e",
         "emoji": "⚠️",
         "details": "陸上自衛隊柏訓練場なのに地理院地図には重要施設の対象となっていない。"
