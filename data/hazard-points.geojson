@@ -600,6 +600,21 @@
           35.39843876384623
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1788330845936_grcvoc",
+        "emoji": "🪖",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.9270298992912,
+          35.41189106299967
+        ]
+      }
     }
   ]
 }
