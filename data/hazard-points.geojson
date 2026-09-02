@@ -720,6 +720,21 @@
           35.889011224811135
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1788332291638_1zdgmh",
+        "emoji": "📡",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.70951537802435,
+          35.72855868900813
+        ]
+      }
     }
   ]
 }
