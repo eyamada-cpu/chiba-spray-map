@@ -585,6 +585,21 @@
           34.98727817290629
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1788330813368_k3l6qw",
+        "emoji": "🪖",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.9854757770582,
+          35.11541988447214
+        ]
+      }
     }
   ]
 }
