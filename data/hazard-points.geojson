@@ -705,6 +705,21 @@
           35.80151527560944
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1788331005597_zn1yfo",
+        "emoji": "🪖",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.41521602244734,
+          35.77512917878932
+        ]
+      }
     }
   ]
 }
