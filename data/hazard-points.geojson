@@ -690,6 +690,21 @@
           35.889287624957
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1788330973205_vl6gbe",
+        "emoji": "🪖",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.01636773114276,
+          35.80151527560944
+        ]
+      }
     }
   ]
 }
