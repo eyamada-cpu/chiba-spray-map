@@ -615,6 +615,21 @@
           35.41189106299967
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1788330857967_auugqs",
+        "emoji": "📡",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.18241957077996,
+          35.446100403868975
+        ]
+      }
     }
   ]
 }
