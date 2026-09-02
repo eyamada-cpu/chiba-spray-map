@@ -570,6 +570,21 @@
           35.88828915394227
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1788330790636_snrq04",
+        "emoji": "🪖",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.8337473466733,
+          34.98727817290629
+        ]
+      }
     }
   ]
 }
