@@ -705,6 +705,21 @@
           35.77512917878932
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1788331042898_rwk4k2",
+        "emoji": "📡",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.93835449218753,
+          35.889011224811135
+        ]
+      }
     }
   ]
 }
