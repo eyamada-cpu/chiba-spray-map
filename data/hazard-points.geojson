@@ -585,6 +585,21 @@
           35.11541988447214
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1788330834929_ooeaaf",
+        "emoji": "🪖",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.91027905581902,
+          35.39843876384623
+        ]
+      }
     }
   ]
 }
