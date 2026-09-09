@@ -173,5 +173,12 @@
     "color": "#ffffff",
     "weight": 1,
     "opacity": 1
+  },
+  "data/uploads/けいよう【八千代】.geojson": {
+    "fillColor": "#ffea00",
+    "fillOpacity": 0.55,
+    "color": "#ffd700",
+    "weight": 2,
+    "opacity": 0.9
   }
 }
