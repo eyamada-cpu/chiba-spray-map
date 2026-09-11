@@ -795,6 +795,21 @@
           35.39509817139146
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1789109448673_8clqni",
+        "emoji": "⚠️",
+        "details": "とうもろこし"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.001134174217,
+          35.39511981152023
+        ]
+      }
     }
   ]
 }
