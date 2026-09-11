@@ -840,6 +840,21 @@
           35.394684419535245
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1789109738723_haw6y8",
+        "emoji": "⚠️",
+        "details": "牧草"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.99613144091558,
+          35.394610891700005
+        ]
+      }
     }
   ]
 }
