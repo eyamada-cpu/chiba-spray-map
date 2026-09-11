@@ -870,6 +870,21 @@
           35.390577850495745
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1789109980645_61dzdx",
+        "emoji": "⚠️",
+        "details": "牧草"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.0048947208591,
+          35.39281874368631
+        ]
+      }
     }
   ]
 }
