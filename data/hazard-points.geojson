@@ -885,6 +885,21 @@
           35.39281874368631
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1789113496699_csa73i",
+        "emoji": "⚠️",
+        "details": "危険個所"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.00248771610975,
+          35.39216553594247
+        ]
+      }
     }
   ]
 }
