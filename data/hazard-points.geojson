@@ -840,6 +840,21 @@
           35.39324747727024
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1789109484620_n3fhx7",
+        "emoji": "⚠️",
+        "details": "WCS"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.99814334192524,
+          35.39307070110205
+        ]
+      }
     }
   ]
 }
