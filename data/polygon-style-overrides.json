@@ -3128,5 +3128,12 @@
   "data/uploads/大鳥居.geojson_21": {
     "fillColor": "#404040",
     "color": "#101010"
+  },
+  "data/uploads/大鳥居.geojson_431": {
+    "fillColor": "#404040",
+    "color": "#101010",
+    "fillOpacity": 0.55,
+    "weight": 2,
+    "opacity": 0.9
   }
 }
