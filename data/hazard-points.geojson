@@ -739,21 +739,6 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "pin_1789109384690_kkqmhr",
-        "emoji": "⚠️",
-        "details": "WCS"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.0012934893044,
-          35.39463754441588
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "id": "pin_1789109393631_522pj8",
         "emoji": "⚠️",
         "details": "WCS"
