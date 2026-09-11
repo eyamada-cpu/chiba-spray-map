@@ -3033,5 +3033,12 @@
     "fillOpacity": 0.55,
     "weight": 2,
     "opacity": 0.9
+  },
+  "data/uploads/大鳥居.geojson_188": {
+    "fillColor": "#ff0000",
+    "color": "#ff0000",
+    "fillOpacity": 0.55,
+    "weight": 2,
+    "opacity": 0.9
   }
 }
