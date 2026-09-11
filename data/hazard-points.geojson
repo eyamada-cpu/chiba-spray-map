@@ -765,6 +765,21 @@
           35.39466536759643
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1789109402698_6kww28",
+        "emoji": "⚠️",
+        "details": "WCS"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.00091037445142,
+          35.39471483100485
+        ]
+      }
     }
   ]
 }
