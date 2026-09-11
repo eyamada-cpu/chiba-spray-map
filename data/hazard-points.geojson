@@ -754,21 +754,6 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "pin_1789109402698_6kww28",
-        "emoji": "⚠️",
-        "details": "WCS"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.00092554731685,
-          35.39469053055795
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "id": "pin_1789109430006_qovcv1",
         "emoji": "⚠️",
         "details": "とうもろこし"
