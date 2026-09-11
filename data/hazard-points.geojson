@@ -825,6 +825,21 @@
           35.39300330434761
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1789109721165_aladzj",
+        "emoji": "⚠️",
+        "details": "牧草"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.99673590418098,
+          35.394684419535245
+        ]
+      }
     }
   ]
 }
