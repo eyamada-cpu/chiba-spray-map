@@ -975,6 +975,21 @@
           35.392716864046065
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1789109588954_nz96ys",
+        "emoji": "⚠️",
+        "details": "WCS"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.9927272278538,
+          35.393184802170275
+        ]
+      }
     }
   ]
 }
