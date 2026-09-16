@@ -945,6 +945,21 @@
           35.39012592161976
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1789521513496_ysv1id",
+        "emoji": "⚠️",
+        "details": "危険個所"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.00471730022434,
+          35.39032592161976
+        ]
+      }
     }
   ]
 }
