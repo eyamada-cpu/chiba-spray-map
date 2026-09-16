@@ -960,6 +960,21 @@
           35.38950054953328
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1789523453800_x1qxh3",
+        "emoji": "⚠️",
+        "details": "危険個所"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.00458267315892,
+          35.38970054953328
+        ]
+      }
     }
   ]
 }
