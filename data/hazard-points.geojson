@@ -930,6 +930,21 @@
           35.39052400303799
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1789521495263_ckt9ex",
+        "emoji": "⚠️",
+        "details": "危険個所"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.00174541263584,
+          35.39072400303799
+        ]
+      }
     }
   ]
 }
