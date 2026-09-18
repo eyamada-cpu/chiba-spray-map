@@ -950,7 +950,7 @@
       "type": "Feature",
       "properties": {
         "id": "pin_1789521513496_ysv1id",
-        "emoji": "🛑",
+        "emoji": "⚠️",
         "details": "危険個所"
       },
       "geometry": {
