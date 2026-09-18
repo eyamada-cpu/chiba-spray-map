@@ -990,6 +990,21 @@
           35.38891068600081
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1789717828334_9vjfmc",
+        "emoji": "🛑",
+        "details": "酒々井と新橋の境目"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.29196765942945,
+          35.725017833664
+        ]
+      }
     }
   ]
 }
