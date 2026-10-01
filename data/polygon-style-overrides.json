@@ -5622,5 +5622,12 @@
     "fillOpacity": 0.55,
     "weight": 2,
     "opacity": 0.9
+  },
+  "data/uploads/JA各支店.geojson_id_727": {
+    "fillColor": "#00ffff",
+    "color": "#00ffff",
+    "fillOpacity": 0.55,
+    "weight": 2,
+    "opacity": 0.9
   }
 }
