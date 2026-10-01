@@ -431,7 +431,7 @@
   {
     "id": "auto_ja各支店_いすみ",
     "title": "いすみ",
-    "color": "#b8f7ff",
+    "color": "#d74242",
     "members": [
       "data/uploads/JA各支店.geojson_id_718",
       "data/uploads/JA各支店.geojson_id_2186",
@@ -487,7 +487,7 @@
   {
     "id": "auto_ja各支店_ちば東葛",
     "title": "ちば東葛",
-    "color": "#64d742",
+    "color": "#a99eff",
     "members": [
       "data/uploads/JA各支店.geojson_id_666",
       "data/uploads/JA各支店.geojson_id_684",
@@ -525,7 +525,7 @@
   {
     "id": "auto_ja各支店_千葉みらい",
     "title": "千葉みらい",
-    "color": "#00d0ff",
+    "color": "#42bbd7",
     "members": [
       "data/uploads/JA各支店.geojson_id_2",
       "data/uploads/JA各支店.geojson_id_3",
@@ -566,7 +566,7 @@
   {
     "id": "auto_ja各支店_市原",
     "title": "市原",
-    "color": "#ff6600",
+    "color": "#6442d7",
     "members": [
       "data/uploads/JA各支店.geojson_id_724"
     ]
