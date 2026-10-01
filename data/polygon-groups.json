@@ -509,10 +509,14 @@
   {
     "id": "auto_ja各支店_八千代",
     "title": "八千代",
-    "color": "#bbff00",
+    "color": "#00ffff",
     "members": [
       "data/uploads/JA各支店.geojson_id_727"
-    ]
+    ],
+    "borderColor": "#00ffff",
+    "fillOpacity": 0.55,
+    "weight": 2,
+    "borderOpacity": 0.9
   },
   {
     "id": "auto_ja各支店_冨里",
