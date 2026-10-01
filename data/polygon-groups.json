@@ -3,10 +3,10 @@
     "id": "group_1785992917107",
     "title": "香取支所",
     "members": [
-      "branch_41",
-      "branch_47",
-      "branch_49",
-      "branch_48"
+      "branch_id_2164",
+      "branch_id_2191",
+      "branch_id_2193",
+      "branch_id_2192"
     ],
     "color": "#ff47f9"
   },
@@ -14,25 +14,25 @@
     "id": "group_1785992996699",
     "title": "北総支所",
     "members": [
-      "branch_35",
-      "branch_38",
-      "branch_16",
-      "branch_17",
-      "branch_26",
-      "branch_10",
-      "branch_8",
-      "branch_32",
-      "branch_13",
-      "branch_22",
-      "branch_29",
-      "branch_37",
-      "branch_36",
-      "branch_45",
-      "branch_46",
-      "branch_27",
-      "branch_14",
-      "branch_25",
-      "branch_9"
+      "branch_id_1070",
+      "branch_id_1073",
+      "branch_id_670",
+      "branch_id_672",
+      "branch_id_727",
+      "branch_id_214",
+      "branch_id_208",
+      "branch_id_1064",
+      "branch_id_665",
+      "branch_id_684",
+      "branch_id_1033",
+      "branch_id_1072",
+      "branch_id_1071",
+      "branch_id_2188",
+      "branch_id_2190",
+      "branch_id_729",
+      "branch_id_666",
+      "branch_id_726",
+      "branch_id_213"
     ],
     "color": "#ffea00"
   },
@@ -40,9 +40,9 @@
     "id": "group_1785993157096",
     "title": "海匝支所",
     "members": [
-      "branch_7",
-      "branch_19",
-      "branch_40"
+      "branch_id_205",
+      "branch_id_680",
+      "branch_id_2163"
     ],
     "color": "#2bff00"
   },
@@ -50,12 +50,12 @@
     "id": "group_1785993195354",
     "title": "山武支所",
     "members": [
-      "branch_44",
-      "branch_18",
-      "branch_50",
-      "branch_42",
-      "branch_52",
-      "branch_51"
+      "branch_id_2187",
+      "branch_id_678",
+      "branch_id_2196",
+      "branch_id_2169",
+      "branch_id_2198",
+      "branch_id_2197"
     ],
     "color": "#00ccff"
   },
@@ -63,16 +63,16 @@
     "id": "group_1785993267327",
     "title": "けいよう支所",
     "members": [
-      "branch_21",
-      "branch_2",
-      "branch_33",
-      "branch_4",
-      "branch_3",
-      "branch_6",
-      "branch_1",
-      "branch_0",
-      "branch_5",
-      "branch_24"
+      "branch_id_683",
+      "branch_id_3",
+      "branch_id_1065",
+      "branch_id_5",
+      "branch_id_4",
+      "branch_id_9",
+      "branch_id_2",
+      "branch_id_1",
+      "branch_id_7",
+      "branch_id_724"
     ],
     "color": "#6600ff"
   },
@@ -80,17 +80,17 @@
     "id": "group_1785993296184",
     "title": "わかしお支所",
     "members": [
-      "branch_23",
-      "branch_59",
-      "branch_43",
-      "branch_60",
-      "branch_58",
-      "branch_54",
-      "branch_53",
-      "branch_55",
-      "branch_57",
-      "branch_15",
-      "branch_56"
+      "branch_id_718",
+      "branch_id_2209",
+      "branch_id_2186",
+      "branch_id_2225",
+      "branch_id_2206",
+      "branch_id_2200",
+      "branch_id_2199",
+      "branch_id_2202",
+      "branch_id_2205",
+      "branch_id_669",
+      "branch_id_2204"
     ],
     "color": "#ff6600"
   },
@@ -98,10 +98,10 @@
     "id": "group_1785993326514",
     "title": "ぼうそう支所",
     "members": [
-      "branch_31",
-      "branch_30",
-      "branch_12",
-      "branch_34"
+      "branch_id_1063",
+      "branch_id_1039",
+      "branch_id_657",
+      "branch_id_1068"
     ],
     "color": "#ea9eff"
   },
@@ -109,10 +109,10 @@
     "id": "group_1785993376812",
     "title": "安房支所",
     "members": [
-      "branch_61",
-      "branch_28",
-      "branch_39",
-      "branch_11"
+      "branch_id_2264",
+      "branch_id_1032",
+      "branch_id_2161",
+      "branch_id_588"
     ],
     "color": "#bbff5c"
   },
@@ -427,5 +427,189 @@
       "data/uploads/大網白里.geojson_31"
     ],
     "color": "#fecdfc"
+  },
+  {
+    "id": "auto_ja各支店_いすみ",
+    "title": "いすみ",
+    "color": "#d74242",
+    "members": [
+      "data/uploads/JA各支店.geojson_id_718",
+      "data/uploads/JA各支店.geojson_id_2186",
+      "data/uploads/JA各支店.geojson_id_2209",
+      "data/uploads/JA各支店.geojson_id_2225"
+    ]
+  },
+  {
+    "id": "auto_ja各支店_いちかわ",
+    "title": "いちかわ",
+    "color": "#d77642",
+    "members": [
+      "data/uploads/JA各支店.geojson_id_208",
+      "data/uploads/JA各支店.geojson_id_214",
+      "data/uploads/JA各支店.geojson_id_1064",
+      "data/uploads/JA各支店.geojson_id_2268"
+    ]
+  },
+  {
+    "id": "auto_ja各支店_かとり",
+    "title": "かとり",
+    "color": "#d7aa42",
+    "members": [
+      "data/uploads/JA各支店.geojson_id_2164",
+      "data/uploads/JA各支店.geojson_id_2191",
+      "data/uploads/JA各支店.geojson_id_2192",
+      "data/uploads/JA各支店.geojson_id_2266"
+    ]
+  },
+  {
+    "id": "auto_ja各支店_きみつ",
+    "title": "きみつ",
+    "color": "#cdd742",
+    "members": [
+      "data/uploads/JA各支店.geojson_id_1039",
+      "data/uploads/JA各支店.geojson_id_1063",
+      "data/uploads/JA各支店.geojson_id_1068"
+    ]
+  },
+  {
+    "id": "auto_ja各支店_ちばみどり",
+    "title": "ちばみどり",
+    "color": "#99d742",
+    "members": [
+      "data/uploads/JA各支店.geojson_id_205",
+      "data/uploads/JA各支店.geojson_id_680",
+      "data/uploads/JA各支店.geojson_id_682",
+      "data/uploads/JA各支店.geojson_id_2163",
+      "data/uploads/JA各支店.geojson_id_2193",
+      "data/uploads/JA各支店.geojson_id_2265"
+    ]
+  },
+  {
+    "id": "auto_ja各支店_ちば東葛",
+    "title": "ちば東葛",
+    "color": "#64d742",
+    "members": [
+      "data/uploads/JA各支店.geojson_id_666",
+      "data/uploads/JA各支店.geojson_id_684",
+      "data/uploads/JA各支店.geojson_id_729",
+      "data/uploads/JA各支店.geojson_id_2267"
+    ]
+  },
+  {
+    "id": "auto_ja各支店_とうかつ中央",
+    "title": "とうかつ中央",
+    "color": "#42d753",
+    "members": [
+      "data/uploads/JA各支店.geojson_id_213",
+      "data/uploads/JA各支店.geojson_id_665",
+      "data/uploads/JA各支店.geojson_id_726",
+      "data/uploads/JA各支店.geojson_id_1033"
+    ]
+  },
+  {
+    "id": "auto_ja各支店_八千代",
+    "title": "八千代",
+    "color": "#42d787",
+    "members": [
+      "data/uploads/JA各支店.geojson_id_727"
+    ]
+  },
+  {
+    "id": "auto_ja各支店_冨里",
+    "title": "冨里",
+    "color": "#42d7bb",
+    "members": [
+      "data/uploads/JA各支店.geojson_id_1073"
+    ]
+  },
+  {
+    "id": "auto_ja各支店_千葉みらい",
+    "title": "千葉みらい",
+    "color": "#42bbd7",
+    "members": [
+      "data/uploads/JA各支店.geojson_id_2",
+      "data/uploads/JA各支店.geojson_id_3",
+      "data/uploads/JA各支店.geojson_id_4",
+      "data/uploads/JA各支店.geojson_id_5",
+      "data/uploads/JA各支店.geojson_id_7",
+      "data/uploads/JA各支店.geojson_id_9",
+      "data/uploads/JA各支店.geojson_id_672",
+      "data/uploads/JA各支店.geojson_id_683",
+      "data/uploads/JA各支店.geojson_id_1065",
+      "data/uploads/JA各支店.geojson_id_1070"
+    ]
+  },
+  {
+    "id": "auto_ja各支店_安房",
+    "title": "安房",
+    "color": "#4287d7",
+    "members": [
+      "data/uploads/JA各支店.geojson_id_588",
+      "data/uploads/JA各支店.geojson_id_1032",
+      "data/uploads/JA各支店.geojson_id_2161",
+      "data/uploads/JA各支店.geojson_id_2264"
+    ]
+  },
+  {
+    "id": "auto_ja各支店_山武郡",
+    "title": "山武郡",
+    "color": "#4253d7",
+    "members": [
+      "data/uploads/JA各支店.geojson_id_678",
+      "data/uploads/JA各支店.geojson_id_2169",
+      "data/uploads/JA各支店.geojson_id_2187",
+      "data/uploads/JA各支店.geojson_id_2196",
+      "data/uploads/JA各支店.geojson_id_2197",
+      "data/uploads/JA各支店.geojson_id_2198"
+    ]
+  },
+  {
+    "id": "auto_ja各支店_市原",
+    "title": "市原",
+    "color": "#6442d7",
+    "members": [
+      "data/uploads/JA各支店.geojson_id_724"
+    ]
+  },
+  {
+    "id": "auto_ja各支店_成田",
+    "title": "成田",
+    "color": "#9942d7",
+    "members": [
+      "data/uploads/JA各支店.geojson_id_670",
+      "data/uploads/JA各支店.geojson_id_2188"
+    ]
+  },
+  {
+    "id": "auto_ja各支店_木更津",
+    "title": "木更津",
+    "color": "#cd42d7",
+    "members": [
+      "data/uploads/JA各支店.geojson_id_657"
+    ]
+  },
+  {
+    "id": "auto_ja各支店_西印旛",
+    "title": "西印旛",
+    "color": "#d742aa",
+    "members": [
+      "data/uploads/JA各支店.geojson_id_1071",
+      "data/uploads/JA各支店.geojson_id_1072",
+      "data/uploads/JA各支店.geojson_id_2190"
+    ]
+  },
+  {
+    "id": "auto_ja各支店_長生",
+    "title": "長生",
+    "color": "#d74276",
+    "members": [
+      "data/uploads/JA各支店.geojson_id_669",
+      "data/uploads/JA各支店.geojson_id_2199",
+      "data/uploads/JA各支店.geojson_id_2200",
+      "data/uploads/JA各支店.geojson_id_2202",
+      "data/uploads/JA各支店.geojson_id_2204",
+      "data/uploads/JA各支店.geojson_id_2205",
+      "data/uploads/JA各支店.geojson_id_2206"
+    ]
   }
 ]
