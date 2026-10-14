@@ -1020,6 +1020,21 @@
           35.70939397928295
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1791963119858_s2i2w0",
+        "emoji": "🛑",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.33817645258333,
+          35.53298386082625
+        ]
+      }
     }
   ]
 }
