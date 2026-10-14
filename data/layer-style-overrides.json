@@ -208,5 +208,12 @@
     "color": "#ff6700",
     "weight": 2,
     "opacity": 0.9
+  },
+  "data/uploads/北清名幸谷.geojson": {
+    "fillColor": "#4400ff",
+    "fillOpacity": 0.55,
+    "color": "#1200ff",
+    "weight": 2,
+    "opacity": 0.9
   }
 }
