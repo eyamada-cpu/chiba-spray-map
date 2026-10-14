@@ -194,5 +194,12 @@
     "color": "#ef85ff",
     "weight": 2,
     "opacity": 0.9
+  },
+  "data/uploads/細草北.geojson": {
+    "fillColor": "#00ff1e",
+    "fillOpacity": 0.55,
+    "color": "#00ff04",
+    "weight": 2,
+    "opacity": 0.9
   }
 }
