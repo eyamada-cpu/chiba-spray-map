@@ -1050,6 +1050,21 @@
           35.503266969781215
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1791963138151_3tbxpy",
+        "emoji": "🛑",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.39945278838496,
+          35.49304684946854
+        ]
+      }
     }
   ]
 }
