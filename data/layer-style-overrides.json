@@ -215,5 +215,12 @@
     "color": "#1200ff",
     "weight": 2,
     "opacity": 0.9
+  },
+  "data/uploads/長国.geojson": {
+    "fillColor": "#cd61ff",
+    "fillOpacity": 0.55,
+    "color": "#a525ff",
+    "weight": 2,
+    "opacity": 0.9
   }
 }
