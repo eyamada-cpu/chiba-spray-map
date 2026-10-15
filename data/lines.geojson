@@ -6181,7 +6181,7 @@
         "id": "line_1791963032632_l0sqi",
         "color": "#4400ff",
         "weight": 4,
-        "opacity": 0.9
+        "opacity": 1
       },
       "geometry": {
         "type": "LineString",
