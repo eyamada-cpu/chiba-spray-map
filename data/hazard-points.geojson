@@ -1065,21 +1065,6 @@
           35.49304684946854
         ]
       }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "pin_1791963167475_7hwdaj",
-        "emoji": "🛑",
-        "details": ""
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.36564709412224,
-          35.46051181263362
-        ]
-      }
     }
   ]
 }
