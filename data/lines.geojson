@@ -6327,7 +6327,7 @@
         "id": "line_1792027322223_b25hh",
         "color": "#ffa200",
         "weight": 4,
-        "opacity": 0.9
+        "opacity": 1
       },
       "geometry": {
         "type": "LineString",
