@@ -6247,7 +6247,7 @@
         "id": "line_1791963058065_rmqyu",
         "color": "#00ff1e",
         "weight": 4,
-        "opacity": 0.9
+        "opacity": 1
       },
       "geometry": {
         "type": "LineString",
