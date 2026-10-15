@@ -6073,7 +6073,7 @@
         "id": "line_1791853659705_iz3w8",
         "color": "#f7b8ff",
         "weight": 4,
-        "opacity": 0.9
+        "opacity": 1
       },
       "geometry": {
         "type": "LineString",
