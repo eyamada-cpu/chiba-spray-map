@@ -1365,6 +1365,201 @@
           35.5000149
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792635454605_0_e1bz",
+        "emoji": "🏠",
+        "details": "fid: 1\nname: 北之幸谷実行組合　上　市東さん\ndescription: 北之幸谷１１４０−１\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3798469,
+          35.5546936
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792635454605_1_gec0",
+        "emoji": "🏠",
+        "details": "fid: 2\nname: 北之幸谷実行組合　下　石橋さん\ndescription: 北之幸谷614-6\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3830888,
+          35.560941
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792635454605_2_gvz8",
+        "emoji": "🏠",
+        "details": "fid: 3\nname: 堀上実行組合　松戸さん\ndescription: 堀上９２０\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3766483,
+          35.5501168
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792635454605_3_yr70",
+        "emoji": "🏠",
+        "details": "fid: 4\nname: 川場実行組合　宇津木さん\ndescription: 川場７８０\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3747098,
+          35.5465926
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792635454605_4_tske",
+        "emoji": "🏠",
+        "details": "fid: 5\nname: 押堀防除組合　長嶋さん\ndescription: 押堀１１５９\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3641665,
+          35.5402043
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792635454605_5_hzdt",
+        "emoji": "🏠",
+        "details": "fid: 6\nname: 酒蔵実行組合　秋本さん\ndescription: 酒蔵７５\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.350334,
+          35.6027679
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792635454605_6_b7wi",
+        "emoji": "🏠",
+        "details": "fid: 7\nname: 三ヶ尻実行組合　山本さん\ndescription: 三ケ尻８２\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3538069,
+          35.5991219
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792635454605_7_pej7",
+        "emoji": "🏠",
+        "details": "fid: 8\nname: 家之子三木戸実行組合　中嶋さん\ndescription: 家之子１６５７\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3800425,
+          35.5958436
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792635454605_8_7dgl",
+        "emoji": "🏠",
+        "details": "fid: 9\nname: 家之子北部実行組合　川野さん\ndescription: 家之子１９７０\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3820096,
+          35.6019725
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792635454605_9_3g96",
+        "emoji": "🏠",
+        "details": "fid: 10\nname: 小野区ヘリ防除組合　大野さん\ndescription: 東金市小野177-1\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3316111,
+          35.5650011
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792635454605_10_xp4h",
+        "emoji": "🏠",
+        "details": "fid: 11\nname: 北幸谷実行組合　矢野さん\ndescription: 北幸谷７７３−１\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.37781,
+          35.532088
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792635454605_11_uyw8",
+        "emoji": "🏠",
+        "details": "fid: 12\nname: 武射田防除組合　上　清宮さん\ndescription: 上武射田８６８\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.4217798,
+          35.5835306
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792635454605_12_sq2l",
+        "emoji": "🏠",
+        "details": "fid: 13\nname: 東中実行組合　吉井　さん\ndescription: 東中９３２−２\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.4287526,
+          35.5614179
+        ]
+      }
     }
   ]
 }
