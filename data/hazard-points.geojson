@@ -1065,6 +1065,306 @@
           35.49304684946854
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792634615167_0_ydeb",
+        "emoji": "🏠",
+        "details": "fid: 1\nname: 永田一区農家組合　伊藤直輝さん\ndescription: 永田９１\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3054009,
+          35.5029853
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792634615167_1_gzfo",
+        "emoji": "🏠",
+        "details": "fid: 2\nname: 永田防除組合（３４区）　田邊　さん\ndescription: 大網白里市　永田　1614\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3107398,
+          35.5104864
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792634615167_2_c0sy",
+        "emoji": "🏠",
+        "details": "fid: 3\nname: 金谷水稲共同防除組合　今関さん\ndescription: 大網白里市　金谷郷　1164\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3054995,
+          35.5387451
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792634615167_3_18wh",
+        "emoji": "🏠",
+        "details": "fid: 4\nname: 餅木農家組合　橋本さん\ndescription: 大網白里市　餅木　123-1\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3067459,
+          35.541835
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792634615167_4_aqm6",
+        "emoji": "🏠",
+        "details": "fid: 5\nname: 養安寺ヘリ防組合　田中さん\ndescription: 大網白里市　養安寺　622\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3237726,
+          35.5531691
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792634615167_5_hsyb",
+        "emoji": "🏠",
+        "details": "fid: 6\nname: 堀畑農家組合　中村さん\ndescription: 大網白里市　山口　640\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3310929,
+          35.5385965
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792634615167_6_gpji",
+        "emoji": "🏠",
+        "details": "fid: 7\nname: 前島農家組合　加藤さん\ndescription: 大網白里市大網2030\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3237866,
+          35.5317852
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792634615167_7_mclr",
+        "emoji": "🏠",
+        "details": "fid: 8\nname: 長峰ラジヘリ防除組合　加藤さん\ndescription: 大網白里市大網2095\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3236009,
+          35.5338009
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792634615167_8_80j4",
+        "emoji": "🏠",
+        "details": "fid: 9\nname: 竹之下共同防除　岩佐　さん\ndescription: 大網白里市大網2751\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3217468,
+          35.537226
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792634615167_9_1f1q",
+        "emoji": "🏠",
+        "details": "fid: 10\nname: 細草六区西農家組合　市東さん\ndescription: 大網白里市細草2732\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3942978,
+          35.5033613
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792634615167_10_x0v0",
+        "emoji": "🏠",
+        "details": "fid: 11\nname: 北飯塚水稲防除組合　中村さん\ndescription: 大網白里市北飯塚124\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3525632,
+          35.5043963
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792634615167_11_tw87",
+        "emoji": "🏠",
+        "details": "fid: 12\nname: 北清名幸谷水稲生産者組合　加藤さん\ndescription: 大網白里市清名幸谷1780-1\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3474412,
+          35.5277464
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792634615167_12_wwj7",
+        "emoji": "🏠",
+        "details": "fid: 13\nname: 桂山農家組合　猪尾さん\ndescription: 大網白里市桂山1143\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3714152,
+          35.5075825
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792634615167_13_vwrp",
+        "emoji": "🏠",
+        "details": "fid: 14\nname: 九十根実行組合　野老さん\ndescription: 大網白里市九十根158\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3788483,
+          35.5102623
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792634615167_14_67xs",
+        "emoji": "🏠",
+        "details": "fid: 15\nname: 南今泉水稲防除組合　大塚さん\ndescription: 大網白里市南今泉814\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.4045707,
+          35.4960062
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792634615167_15_5rcm",
+        "emoji": "🏠",
+        "details": "fid: 16\nname: 宮本防除組合　水間さん\ndescription: 大網白里市南今泉3778\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.4007924,
+          35.4910207
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792634615167_16_ge2a",
+        "emoji": "🏠",
+        "details": "fid: 17\nname: 細草六区北農家組合　佐久間さん\ndescription: 大網白里市細草2579\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3938966,
+          35.5056918
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792634615167_17_rvia",
+        "emoji": "🏠",
+        "details": "fid: 18\nname: 白里南部防除組合　内山さん\ndescription: 大網白里市四天木甲2348\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3985965,
+          35.4803284
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792634615167_18_togd",
+        "emoji": "🏠",
+        "details": "fid: 19\nname: 殿里農家組合　安川さん\ndescription: 大網白里市四天木乙594-1\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.4044059,
+          35.4842476
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1792634615167_19_r4by",
+        "emoji": "🏠",
+        "details": "fid: 20\nname: 長国実行組合　加藤さん\ndescription: 大網白里市長国524\naltitude: 0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3769561,
+          35.5000149
+        ]
+      }
     }
   ]
 }
