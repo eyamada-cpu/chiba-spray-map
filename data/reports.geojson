@@ -5,14 +5,15 @@
       "type": "Feature",
       "properties": {
         "id": "rep_1792979062596_21ag1",
-        "name": "新しいレポート",
-        "memo": "",
+        "name": "123",
+        "memo": "12345",
         "color": "#0d9488",
         "flag": [
           140.27905597262074,
           35.65433876813493
         ],
-        "createdAt": "2026-10-26T01:44:22.597Z"
+        "createdAt": "2026-10-26T01:44:22.597Z",
+        "updatedAt": "2026-10-26T01:44:32.849Z"
       },
       "geometry": {
         "type": "Polygon",
