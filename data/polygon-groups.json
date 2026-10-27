@@ -611,5 +611,276 @@
       "data/uploads/JA各支店.geojson_id_2205",
       "data/uploads/JA各支店.geojson_id_2206"
     ]
+  },
+  {
+    "id": "auto_競合他社_NTTME/栃木ST他",
+    "title": "NTTME/栃木ST他",
+    "color": "#3eff3e",
+    "members": [
+      "data/uploads/競合他社エリア分布地図.geojson_id_2205"
+    ],
+    "borderColor": "#232323",
+    "fillOpacity": 0.6,
+    "weight": 1,
+    "borderOpacity": 1
+  },
+  {
+    "id": "auto_競合他社_その他（記入なし）",
+    "title": "その他（記入なし）",
+    "color": "#ffffff",
+    "members": [
+      "data/uploads/競合他社エリア分布地図.geojson_id_1",
+      "data/uploads/競合他社エリア分布地図.geojson_id_208",
+      "data/uploads/競合他社エリア分布地図.geojson_id_213",
+      "data/uploads/競合他社エリア分布地図.geojson_id_214",
+      "data/uploads/競合他社エリア分布地図.geojson_id_665",
+      "data/uploads/競合他社エリア分布地図.geojson_id_682",
+      "data/uploads/競合他社エリア分布地図.geojson_id_683",
+      "data/uploads/競合他社エリア分布地図.geojson_id_718",
+      "data/uploads/競合他社エリア分布地図.geojson_id_726",
+      "data/uploads/競合他社エリア分布地図.geojson_id_1033",
+      "data/uploads/競合他社エリア分布地図.geojson_id_1064",
+      "data/uploads/競合他社エリア分布地図.geojson_id_1072",
+      "data/uploads/競合他社エリア分布地図.geojson_id_2264"
+    ],
+    "borderColor": "#232323",
+    "fillOpacity": 0.6,
+    "weight": 1,
+    "borderOpacity": 1
+  },
+  {
+    "id": "auto_競合他社_オプティム",
+    "title": "オプティム",
+    "color": "#21a6ff",
+    "members": [
+      "data/uploads/競合他社エリア分布地図.geojson_id_2",
+      "data/uploads/競合他社エリア分布地図.geojson_id_3",
+      "data/uploads/競合他社エリア分布地図.geojson_id_4",
+      "data/uploads/競合他社エリア分布地図.geojson_id_5",
+      "data/uploads/競合他社エリア分布地図.geojson_id_7",
+      "data/uploads/競合他社エリア分布地図.geojson_id_9",
+      "data/uploads/競合他社エリア分布地図.geojson_id_672",
+      "data/uploads/競合他社エリア分布地図.geojson_id_724",
+      "data/uploads/競合他社エリア分布地図.geojson_id_1065",
+      "data/uploads/競合他社エリア分布地図.geojson_id_1070",
+      "data/uploads/競合他社エリア分布地図.geojson_id_2186",
+      "data/uploads/競合他社エリア分布地図.geojson_id_2199",
+      "data/uploads/競合他社エリア分布地図.geojson_id_2200",
+      "data/uploads/競合他社エリア分布地図.geojson_id_2204"
+    ],
+    "borderColor": "#232323",
+    "fillOpacity": 0.6,
+    "weight": 1,
+    "borderOpacity": 1
+  },
+  {
+    "id": "auto_競合他社_オプティム・ヤンマー",
+    "title": "オプティム・ヤンマー",
+    "color": "#e31a1c",
+    "members": [
+      "data/uploads/競合他社エリア分布地図.geojson_id_670"
+    ],
+    "borderColor": "#21a6ff",
+    "fillOpacity": 0.6,
+    "weight": 4,
+    "borderOpacity": 1
+  },
+  {
+    "id": "auto_競合他社_スキアロボット・調整スマート農業推進協議会",
+    "title": "スキアロボット・調整スマート農業推進協議会",
+    "color": "#ce3c97",
+    "members": [
+      "data/uploads/競合他社エリア分布地図.geojson_id_2202"
+    ],
+    "borderColor": "#232323",
+    "fillOpacity": 0.6,
+    "weight": 1,
+    "borderOpacity": 1
+  },
+  {
+    "id": "auto_競合他社_ヤンマー",
+    "title": "ヤンマー",
+    "color": "#e31a1c",
+    "members": [
+      "data/uploads/競合他社エリア分布地図.geojson_id_1039",
+      "data/uploads/競合他社エリア分布地図.geojson_id_1063",
+      "data/uploads/競合他社エリア分布地図.geojson_id_2190",
+      "data/uploads/競合他社エリア分布地図.geojson_id_2191",
+      "data/uploads/競合他社エリア分布地図.geojson_id_2196",
+      "data/uploads/競合他社エリア分布地図.geojson_id_2209"
+    ],
+    "borderColor": "#232323",
+    "fillOpacity": 0.6,
+    "weight": 1,
+    "borderOpacity": 1
+  },
+  {
+    "id": "auto_競合他社_ヤンマー・ワイズファクトリー",
+    "title": "ヤンマー・ワイズファクトリー",
+    "color": "#e31a1c",
+    "members": [
+      "data/uploads/競合他社エリア分布地図.geojson_id_1071"
+    ],
+    "borderColor": "#95f995",
+    "fillOpacity": 0.6,
+    "weight": 4,
+    "borderOpacity": 1
+  },
+  {
+    "id": "auto_競合他社_ヤンマー・大栄スカイ・スカイロボット・個人",
+    "title": "ヤンマー・大栄スカイ・スカイロボット・個人",
+    "color": "#e31a1c",
+    "members": [
+      "data/uploads/競合他社エリア分布地図.geojson_id_2169"
+    ],
+    "borderColor": "#f7e100",
+    "fillOpacity": 0.6,
+    "weight": 4,
+    "borderOpacity": 1
+  },
+  {
+    "id": "auto_競合他社_ヤンマー・房総技研・個人",
+    "title": "ヤンマー・房総技研・個人",
+    "color": "#e31a1c",
+    "members": [
+      "data/uploads/競合他社エリア分布地図.geojson_id_678"
+    ],
+    "borderColor": "#f7e100",
+    "fillOpacity": 0.6,
+    "weight": 4,
+    "borderOpacity": 1
+  },
+  {
+    "id": "auto_競合他社_ヤンマー・房総技研・板倉ファーム・個人",
+    "title": "ヤンマー・房総技研・板倉ファーム・個人",
+    "color": "#e31a1c",
+    "members": [
+      "data/uploads/競合他社エリア分布地図.geojson_id_2187"
+    ],
+    "borderColor": "#f7e100",
+    "fillOpacity": 0.6,
+    "weight": 4,
+    "borderOpacity": 1
+  },
+  {
+    "id": "auto_競合他社_千葉スカイ",
+    "title": "千葉スカイ",
+    "color": "#f7e100",
+    "members": [
+      "data/uploads/競合他社エリア分布地図.geojson_id_205",
+      "data/uploads/競合他社エリア分布地図.geojson_id_588",
+      "data/uploads/競合他社エリア分布地図.geojson_id_666",
+      "data/uploads/競合他社エリア分布地図.geojson_id_669",
+      "data/uploads/競合他社エリア分布地図.geojson_id_684",
+      "data/uploads/競合他社エリア分布地図.geojson_id_1073",
+      "data/uploads/競合他社エリア分布地図.geojson_id_2161",
+      "data/uploads/競合他社エリア分布地図.geojson_id_2163",
+      "data/uploads/競合他社エリア分布地図.geojson_id_2188",
+      "data/uploads/競合他社エリア分布地図.geojson_id_2198",
+      "data/uploads/競合他社エリア分布地図.geojson_id_2225"
+    ],
+    "borderColor": "#232323",
+    "fillOpacity": 0.6,
+    "weight": 1,
+    "borderOpacity": 1
+  },
+  {
+    "id": "auto_競合他社_千葉スカイ・オプティム",
+    "title": "千葉スカイ・オプティム",
+    "color": "#21a6ff",
+    "members": [
+      "data/uploads/競合他社エリア分布地図.geojson_id_2164",
+      "data/uploads/競合他社エリア分布地図.geojson_id_2192"
+    ],
+    "borderColor": "#f7e100",
+    "fillOpacity": 0.6,
+    "weight": 4,
+    "borderOpacity": 1
+  },
+  {
+    "id": "auto_競合他社_千葉スカイ・ヤンマー",
+    "title": "千葉スカイ・ヤンマー",
+    "color": "#e31a1c",
+    "members": [
+      "data/uploads/競合他社エリア分布地図.geojson_id_657",
+      "data/uploads/競合他社エリア分布地図.geojson_id_1032",
+      "data/uploads/競合他社エリア分布地図.geojson_id_1068"
+    ],
+    "borderColor": "#f7e100",
+    "fillOpacity": 0.6,
+    "weight": 4,
+    "borderOpacity": 1
+  },
+  {
+    "id": "auto_競合他社_千葉スカイ・ワイズファクトリー",
+    "title": "千葉スカイ・ワイズファクトリー",
+    "color": "#75a700",
+    "members": [
+      "data/uploads/競合他社エリア分布地図.geojson_id_729"
+    ],
+    "borderColor": "#f7e100",
+    "fillOpacity": 0.6,
+    "weight": 4,
+    "borderOpacity": 1
+  },
+  {
+    "id": "auto_競合他社_千葉スカイ・個人",
+    "title": "千葉スカイ・個人",
+    "color": "#7c64ca",
+    "members": [
+      "data/uploads/競合他社エリア分布地図.geojson_id_727"
+    ],
+    "borderColor": "#f7e100",
+    "fillOpacity": 0.6,
+    "weight": 4,
+    "borderOpacity": 1
+  },
+  {
+    "id": "auto_競合他社_各農家組合・個人",
+    "title": "各農家組合・個人",
+    "color": "#00ffee",
+    "members": [
+      "data/uploads/競合他社エリア分布地図.geojson_id_2206"
+    ],
+    "borderColor": "#232323",
+    "fillOpacity": 0.6,
+    "weight": 1,
+    "borderOpacity": 1
+  },
+  {
+    "id": "auto_競合他社_国際ドローン協会",
+    "title": "国際ドローン協会",
+    "color": "#fdbf6f",
+    "members": [
+      "data/uploads/競合他社エリア分布地図.geojson_id_2193"
+    ],
+    "borderColor": "#232323",
+    "fillOpacity": 0.6,
+    "weight": 1,
+    "borderOpacity": 1
+  },
+  {
+    "id": "auto_競合他社_大栄スカイ・スカイロボット・個人",
+    "title": "大栄スカイ・スカイロボット・個人",
+    "color": "#ff00fe",
+    "members": [
+      "data/uploads/競合他社エリア分布地図.geojson_id_2197"
+    ],
+    "borderColor": "#232323",
+    "fillOpacity": 0.6,
+    "weight": 1,
+    "borderOpacity": 1
+  },
+  {
+    "id": "auto_競合他社_若梅農産・大栄スカイ・DPS・個人",
+    "title": "若梅農産・大栄スカイ・DPS・個人",
+    "color": "#ff0087",
+    "members": [
+      "data/uploads/競合他社エリア分布地図.geojson_id_680"
+    ],
+    "borderColor": "#f7e137",
+    "fillOpacity": 0.6,
+    "weight": 4,
+    "borderOpacity": 1
   }
 ]
