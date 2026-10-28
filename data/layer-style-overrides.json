@@ -229,5 +229,12 @@
     "color": "#ff00d7",
     "weight": 2,
     "opacity": 0.9
+  },
+  "data/uploads/【東金】東中.geojson": {
+    "fillColor": "#ff0059",
+    "fillOpacity": 0.55,
+    "color": "#ff001f",
+    "weight": 2,
+    "opacity": 0.9
   }
 }
