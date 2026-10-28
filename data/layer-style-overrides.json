@@ -222,5 +222,12 @@
     "color": "#a525ff",
     "weight": 2,
     "opacity": 0.9
+  },
+  "data/uploads/【富里】根木名.geojson": {
+    "fillColor": "#ff00ea",
+    "fillOpacity": 0.55,
+    "color": "#ff00d7",
+    "weight": 2,
+    "opacity": 0.9
   }
 }
