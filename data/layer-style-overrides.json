@@ -238,9 +238,9 @@
     "opacity": 0.9
   },
   "data/uploads/【東金】北幸谷.geojson": {
-    "fillColor": "#ccff00",
+    "fillColor": "#ff00bb",
     "fillOpacity": 0.55,
-    "color": "#a3ff00",
+    "color": "#ff0089",
     "weight": 2,
     "opacity": 0.9
   }
