@@ -6573,7 +6573,7 @@
         "id": "line_1794270171094_x6m3u",
         "color": "#e11d48",
         "weight": 4,
-        "opacity": 0.9
+        "opacity": 1
       },
       "geometry": {
         "type": "LineString",
