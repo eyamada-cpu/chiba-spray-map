@@ -1560,6 +1560,21 @@
           35.5614179
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1794269595086_bbc2r7",
+        "emoji": "🛑",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.36346629647846,
+          35.551816697977316
+        ]
+      }
     }
   ]
 }
