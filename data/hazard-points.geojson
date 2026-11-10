@@ -1575,6 +1575,21 @@
           35.551816697977316
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pin_1794269606733_c6cjpc",
+        "emoji": "🛑",
+        "details": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.37538302331643,
+          35.53956476590277
+        ]
+      }
     }
   ]
 }
